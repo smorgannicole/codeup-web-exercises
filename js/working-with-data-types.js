@@ -87,12 +87,12 @@ let guildNameStart = usernameJ.indexOf("(");
 let guildNameEnd = nameLength - 1;
 let guildName = usernameJ.substring(guildNameStart +1, guildNameEnd);
 let guildNameWithParenthesis = "(" + guildName + ")";
-username = usernameJ.replace(guildNameWithParenthesis, "");
-username = username.trim();
+usernameJ = usernameJ.replace(guildNameWithParenthesis, "");
+usernameJ = usernamej.trim();
 console.log("username => ", username, "guildname =>", guildName);
 
 
-
+//Question 9
 let mermaidDays = 3;
 let bearDays = 5;
 let herculesDays = 1;
@@ -142,10 +142,3 @@ console.log(`The password is valid ${validPassword}`)
 const validUsername = userLengthValid && usernameNoWhiteSpace;
 console.log(`The username is valid ${validUsername}`);
 
-//break down a function
-function sayHello(){
-    console.log("hello");
-};
-
-sayHello();
-//function has been invoked
