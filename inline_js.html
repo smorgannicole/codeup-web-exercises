@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Inline JS</title>
+</head>
+<body>
+<script>
+  console.log("Hello from inline JavaScript");
+
+  const movie1 = prompt("Enter the first movie you are renting");
+  const movie2 = prompt("Enter the second movie you are renting");
+  const movie3 = prompt("Enter the third movie you are renting");
+  alert(`You are renting out the movies ${movie1}, ${movie2}, ${movie3}`);
+
+  const mermaidDays = prompt(`How many days will you be renting ${movie1} ?`);
+  const bearDays = prompt(`How many days will you be renting ${movie2}`);
+  const herculesDays = prompt(`How many days will you be renting ${movie3}`);
+  alert(`You will be renting out ${movie1} for ${mermaidDays} days`);
+  alert(`You will be renting out ${movie2} for ${bearDays}`);
+  alert(`You will be renting out ${movie3} for ${herculesDays}`);
+
+  const pricePerDay = 3;
+  const mermaidCost = pricePerDay * mermaidDays;
+  const bearCost = pricePerDay * bearDays;
+  const herculesCost = pricePerDay * herculesDays;
+
+  let totalCost = mermaidCost + bearCost + herculesCost;
+  alert(`Your total cost for all the movies is $${totalCost}`);
+
+
+</script>
+</body>
+</html>
