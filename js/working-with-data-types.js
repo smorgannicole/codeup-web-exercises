@@ -1,37 +1,42 @@
-// let a = 1;
-// let b = a++;
-// let c = ++a;
-// // what is the value of a, b, and c?
-// console.log(a); //3
-// console.log(b); //1
-// console.log(c); //3
-//
-//
-// let d = "hello";
-// let e = false;
-//
-// d++;
-// e++;
-// console.log(d);
-// console.log(e);
+//Question 1
+let a = 1;
+let b = a++;
+let c = ++a;
+
+console.log(a); //3
+console.log(b); //1
+console.log(c); //3
 
 
-let perplexed; // perplexed is undefined (no value is assigned)
+//Question 2
+let d = "hello";
+let e = false;
+
+d++;
+e++;
+console.log(d);
+console.log(e);
+
+
+//Question 3
+let perplexed;
 perplexed + 2;
 console.log(perplexed);
 
 
-// let price = 2.7;
-// price = price.toFixed(2);
-// console.log(price);
+//Question 4
+let price1 = 2.7;
+price1 = price1.toFixed(2);
+console.log(price1);
 
 
-// let price = "2.7";
-// price.toFixed(2);
-// console.log(price);
+//Question 5
+//let price2 = "2.7";
+//price2.toFixed(2);
+//console.log(price2);
 
 
-
+//Question 6
 let nan1 = isNaN(0)
 
 let nan2 = isNaN(1)
@@ -58,68 +63,33 @@ let nan12 = isNaN("false")
 
 let nan13 = isNaN(false)
 
-// to illustrate why the isNaN() function is needed:
 let nan14 = NaN == NaN
-//console.log(
- //   nan1, nan2, nan3, nan4, nan5, nan6, nan7, nan8, nan9, nan10, nan11, nan12, nan13, nan14)
-//     `
-// ${nan1}
-//
-// isNaN(1) is ${nan2}
-//
-// isNaN("") is ${nan3}
-//
-// isNaN("string") is ${nan4}
-//
-// isNaN("0") is ${nan4}
-//
-// isNaN("1") is ${nan5}
-//
-// isNaN("3.145") is ${nan6}
-//
-// isNaN(Number.MAX_VALUE) is ${nan7}
-//
-// isNaN(Infinity) is ${nan8}
-//
-// isNaN("true") is ${nan9}
-//
-// isNaN(true) is ${nan10}
-//
-// isNaN("false") is ${nan11}
-//
-// isNaN(false) is ${nan12}
-//
-// NaN == NaN is ${nan13}
-//     `
-//
-//
-// )
+console.log(nan1, nan2, nan3, nan4, nan5, nan6, nan7, nan8, nan9, nan10, nan11, nan12, nan13, nan14)
 
-//let sample = "hello codeup";
-//let upperCase = sample.toUpperCase("hello codeup");
-let sample = "Hello Codeup" + " Class";
-let sampleLength = sample.length;
-//let bigc = sample.indexOf("C");
-let codeupStart = sample.indexOf("Codeup");
-let codeupEnd = sample.length - 6;
-let pullSubstring = sample.substring(codeupStart, codeupEnd);
-
+//Question 7
+let sample2 = "hello codeup";
+let upperCase = sample2.toUpperCase("hello codeup");
+sample2 = "Hello Codeup" + " Class";
+let sampleLength = sample2.length;
+let bigc = sample2.indexOf("C");
+let codeupStart = sample2.indexOf("Codeup");
+let codeupEnd = sample2.length - 6;
+let pullSubstring = sample2.substring(codeupStart, codeupEnd);
 
 console.log(pullSubstring);
 
 
+//Question 8
+let usernameJ = "Justino (Nova)";
 
-
-// let username = "Justino (Nova)";
-//
-// let nameLength = username.length;
-// let guildNameStart = username.indexOf("(");
-// let guildNameEnd = nameLength - 1;
-// let guildName = username.substring(guildNameStart +1, guildNameEnd);
-// let guildNameWithParenthesis = "(" + guildName + ")";
-// username = username.replace(guildNameWithParenthesis, "");
-// username = username.trim();
-// console.log("username => ", username, "guildname =>", guildName);
+let nameLength = usernameJ.length;
+let guildNameStart = usernameJ.indexOf("(");
+let guildNameEnd = nameLength - 1;
+let guildName = usernameJ.substring(guildNameStart +1, guildNameEnd);
+let guildNameWithParenthesis = "(" + guildName + ")";
+username = usernameJ.replace(guildNameWithParenthesis, "");
+username = username.trim();
+console.log("username => ", username, "guildname =>", guildName);
 
 
 
@@ -171,3 +141,11 @@ const validPassword = is5Chars && passNotContainUsername && passNoWhiteSpace;
 console.log(`The password is valid ${validPassword}`)
 const validUsername = userLengthValid && usernameNoWhiteSpace;
 console.log(`The username is valid ${validUsername}`);
+
+//break down a function
+function sayHello(){
+    console.log("hello");
+};
+
+sayHello();
+//function has been invoked

@@ -25,7 +25,8 @@
   const herculesCost = pricePerDay * herculesDays;
 
   let totalCost = mermaidCost + bearCost + herculesCost;
-  alert(`Your total cost for all the movies is $${totalCost}`);
+  totalCost = totalCost.toLocaleString("en-US", {style: "currency", currency: "USD"});
+  alert(`Your total cost for all the movies is ${totalCost}`);
 
 
 </script>

@@ -26,7 +26,5 @@ const amazonTotal = amazonPay * amazonHours;
 const facebookTotal = facebookPay * facebookHours;
 
 let totalWeeklyPay = googleTotal + amazonTotal + facebookTotal;
+totalWeeklyPay = totalWeeklyPay.toLocaleString("en-US", {style: "currency", currency: "USD"});
 alert(`Your total weekly income was ${totalWeeklyPay}`);
-
-
-// Google pays $400, Amazon $380, and Facebook $350. How much will you receive in payment for this week? You worked 10 hours for Facebook, 6 hours for Google and 4 hours for Amazon.
