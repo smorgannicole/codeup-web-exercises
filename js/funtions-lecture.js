@@ -69,3 +69,9 @@
 // can send multiple parameters, but need 2 variables to capture the data
 
 //ex
+const returnInt = (enterInterger) => {
+    return parseFloat(`${enterInterger}`).toFixed(1);
+}
+const open = returnInt("43.5553");
+console.log(open);
+
