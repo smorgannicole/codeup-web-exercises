@@ -93,10 +93,11 @@
 // tieFighter();
 
 //Better
-const globalVar = "I am global";
-const tieFighter = (global) => {
-    console.log(global);
-};
-tieFighter(globalVar);
+// const globalVar = "I am global";
+// const tieFighter = (global) => {
+//     console.log(global);
+// };
+// tieFighter(globalVar);
+
 
 
