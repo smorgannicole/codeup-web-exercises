@@ -69,9 +69,34 @@
 // can send multiple parameters, but need 2 variables to capture the data
 
 //ex
-const returnInt = (enterInterger) => {
-    return parseFloat(`${enterInterger}`).toFixed(1);
-}
-const open = returnInt("43.5553");
-console.log(open);
+// const returnInt = (enterInterger) => {
+//     return parseFloat(`${enterInterger}`).toFixed(1);
+// }
+// const open = returnInt("43.5553");
+// console.log(open);
+
+//default values
+// const sayHello = (usersFullName = "no username") => //another way to have a username if no argument is invoked
+//      console.log(`Hello ${usersFullName}`);
+// const greeting = sayHello("Morgan");
+// const greeting2 = sayHello();
+
+//scoping
+
+// const globalVar = "I am global"; // avoid using the global bc it cripples the function
+//
+// const tieFighter = () => {
+//     const localVariable = "I am local";//local scope, cant be accessed outside of function, only global
+//     console.log(globalVar);
+// };
+// console.log(localVariable);
+// tieFighter();
+
+//Better
+const globalVar = "I am global";
+const tieFighter = (global) => {
+    console.log(global);
+};
+tieFighter(globalVar);
+
 
