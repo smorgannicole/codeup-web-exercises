@@ -99,10 +99,16 @@
 // };
 // tieFighter(globalVar);
 
-let color = "4";
-const enteredNumber = typeof parseInt(color) == "number";
-console.log(enteredNumber);
+// let color = "4";
+// const enteredNumber = typeof parseInt(color) == "number";
+// console.log(enteredNumber);
+//
+// let notColor = !color;
+// console.log(notColor);
 
-let notColor = !color;
-console.log(notColor);
+// let str1 = prompt("enter string");
+// const enteredString = typeof parseInt(str1) == "string";
+// console.log(enteredString)
 
+let test = prompt("enter");
+console.log(typeof test)
