@@ -91,33 +91,49 @@
 //                  will contain a different color every time the page loads)
 const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
 const randomColor = colors[Math.floor(Math.random() * colors.length)];
+
 /**
  * TODO:
  * Pass the `randomColor` variable to your 'analyzeColor' function and console.log the results.
  * You should see a different message every time you refresh the page
  */
-const analyzeColor = (colorName) => {
-    const enteredNumber = typeof parseInt(colorName) == "number";
-
-    if (enteredNumber || !colorName) {
-        return "please enter a color";
-    } else if (enterColor === "blue") {
-        return "you chose blue";
-    } else if (enterColor === "red") {
-        return "you chose red";
-    } else if (enterColor === "yellow") {
-        return "you chose yellow";
-    } else {
-        return "congrats, you didn't choose a primary color";
-    }
-}
-const enterColor = prompt("please enter a color");
-const runTheTest = analyzeColor(enterColor);
-console.log(runTheTest);
+// const analyzeColor = (colorName) => {
+//     const enteredNumber = typeof parseInt(colorName) == "number";
+//
+//     if (enteredNumber || !colorName) {
+//         return "please enter a color";
+//     } else if (enterColor === "blue") {
+//         return "you chose blue";
+//     } else if (enterColor === "red") {
+//         return "you chose red";
+//     } else if (enterColor === "yellow") {
+//         return "you chose yellow";
+//     } else {
+//         return "congrats, you didn't choose a primary color";
+//     }
+// }
+// const enterColor = prompt("please enter a color");
+// const runTheTest = analyzeColor(enterColor);
+// console.log(runTheTest);
 /**
  * TODO:
  * Comment out the code above, and refactor your function to use a switch-case statement
  */
+    switch (randomColor) {
+        case "red":
+            console.log("you chose red");
+            break;
+        case "blue":
+            console.log("you chose blue");
+            break;
+        case "yellow":
+            console.log("you chose yellow");
+            break;
+        default:
+            console.log("congrats, you didn't choose a primary color");
+    }
+
+
 
 /**
  * TODO:
