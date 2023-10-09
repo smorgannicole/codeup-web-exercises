@@ -99,5 +99,10 @@
 // };
 // tieFighter(globalVar);
 
+let color = "4";
+const enteredNumber = typeof parseInt(color) == "number";
+console.log(enteredNumber);
 
+let notColor = !color;
+console.log(notColor);
 

@@ -96,25 +96,24 @@ const randomColor = colors[Math.floor(Math.random() * colors.length)];
  * Pass the `randomColor` variable to your 'analyzeColor' function and console.log the results.
  * You should see a different message every time you refresh the page
  */
-// const analyzeColor = (colorName) => {
-//     const enteredNumber = typeof parseFloat(colorName) == "number";
-//     // const enteredUndefined = colorName === undefined;
-//     // console.log(enteredUndefined)
-//
-//     if (enteredNumber || !colorName) {
-//         return "please enter a color";
-//     } else if (enterColor === "blue") {
-//         return "you chose blue";
-//     } else if (enterColor === "red") {
-//         return "you chose red";
-//     } else if (enterColor === "yellow") {
-//         return "you chose yellow";
-//     } else {
-//         return "congrats, you didn't choose a primary color";
-//     }
-// }
-// const enterColor = prompt("please enter a color")
-// console.log(analyzeColor(enterColor));
+const analyzeColor = (colorName) => {
+    const enteredNumber = typeof parseInt(colorName) == "number";
+
+    if (enteredNumber || !colorName) {
+        return "please enter a color";
+    } else if (enterColor === "blue") {
+        return "you chose blue";
+    } else if (enterColor === "red") {
+        return "you chose red";
+    } else if (enterColor === "yellow") {
+        return "you chose yellow";
+    } else {
+        return "congrats, you didn't choose a primary color";
+    }
+}
+const enterColor = prompt("please enter a color");
+const runTheTest = analyzeColor(enterColor);
+console.log(runTheTest);
 /**
  * TODO:
  * Comment out the code above, and refactor your function to use a switch-case statement
@@ -148,14 +147,14 @@ const randomColor = colors[Math.floor(Math.random() * colors.length)];
  * Test your function by passing it various values and checking for the expected
  * return value.
  */
-const calculateTotal = (luckyNumber, totalAmount) => {
-    const lessAndGreaterThan = enterLuckyNumber >5 || enterLuckyNumber <0;
-    if(lessAndGreaterThan || !luckyNumber || ) {
-
-    }
-}
-const enterLuckyNumber = prompt("Please enter your lucky number");
-const enterTotalAmount = prompt("Please enter the total amount of your groceries");
+// const calculateTotal = (luckyNumber, totalAmount) => {
+//     const lessAndGreaterThan = enterLuckyNumber >5 || enterLuckyNumber <0;
+//     if(lessAndGreaterThan || !luckyNumber ||) {
+//
+//     }
+// }
+// const enterLuckyNumber = prompt("Please enter your lucky number");
+// const enterTotalAmount = prompt("Please enter the total amount of your groceries");
 /**
  * TODO:
  * Uncomment the line below to generate a random number between 0 and 5.
@@ -184,3 +183,12 @@ const enterTotalAmount = prompt("Please enter the total amount of your groceries
  // *
  // * Can you refactor your code to use functions?
  // * HINT: The way we prompt for a value could be improved
+
+//while and do while practice
+
+// let number = 2;
+//
+// while (number < 100) {
+//     console.log(number + `this number doubled is...`);
+//     number * 2;
+// }
