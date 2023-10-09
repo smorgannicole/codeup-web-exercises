@@ -110,5 +110,9 @@
 // const enteredString = typeof parseInt(str1) == "string";
 // console.log(enteredString)
 
-let test = prompt("enter");
-console.log(typeof test)
+// let test = prompt("enter");
+// console.log(typeof test)
+let totalAmount = 10;
+const dollarFormatAmount = totalAmount.toLocaleString("en-US", {style:"currency", currency:"USD"});
+const calc = dollarFormatAmount * .9;
+console.log(calc);

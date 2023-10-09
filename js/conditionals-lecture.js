@@ -177,28 +177,28 @@ const randomColor = colors[Math.floor(Math.random() * colors.length)];
  * Test your function by passing it various values and checking for the expected
  * return value.
  */
-const calculateTotal = (luckyNumber, totalAmount) => {
-    const lessAndGreaterThan = luckyNumber >5 || luckyNumber <0;
-    if(lessAndGreaterThan || !luckyNumber) {
-        return "Please enter a number between 0 and 5";
-    } else if (luckyNumber == 0) {
-        return `Your total price is ${(totalAmount).toLocaleString("en-US", {style:"currency", currency:"USD"})}`;
-    } else if (luckyNumber == 1) {
-        return `Your total price is ${(totalAmount * .9).toLocaleString("en-US", {style:"currency", currency:"USD"})}`;
-    } else if (luckyNumber == 2) {
-        return `Your total price is ${(totalAmount * .75).toLocaleString("en-US", {style:"currency", currency:"USD"})}`;
-    } else if (luckyNumber == 3) {
-        return `Your total price is ${(totalAmount * .65).toLocaleString("en-US", {style:"currency", currency:"USD"})}`;
-    } else if (luckyNumber == 4) {
-        return `Your total price is ${(totalAmount * .5).toLocaleString("en-US", {style:"currency", currency:"USD"})}`;
-    } else {
-        return "Your items are free";
-    }
-}
-const enterLuckyNumber = prompt("Please enter your lucky number");
-const enterTotalAmount = prompt("Please enter the total amount of your groceries");
-const runItUp = calculateTotal(enterLuckyNumber, enterTotalAmount);
-console.log(runItUp);
+// const calculateTotal = (luckyNumber, totalAmount) => {
+//     const lessAndGreaterThan = luckyNumber >5 || luckyNumber <0;
+//     if(lessAndGreaterThan || !luckyNumber) {
+//         return "Please enter a number between 0 and 5";
+//     } else if (luckyNumber == 0) {
+//         return `Your total price is ${(totalAmount).toLocaleString("en-US", {style:"currency", currency:"USD"})}`;
+//     } else if (luckyNumber == 1) {
+//         return `Your total price is ${(totalAmount * .9).toLocaleString("en-US", {style:"currency", currency:"USD"})}`;
+//     } else if (luckyNumber == 2) {
+//         return `Your total price is ${(totalAmount * .75).toLocaleString("en-US", {style:"currency", currency:"USD"})}`;
+//     } else if (luckyNumber == 3) {
+//         return `Your total price is ${(totalAmount * .65).toLocaleString("en-US", {style:"currency", currency:"USD"})}`;
+//     } else if (luckyNumber == 4) {
+//         return `Your total price is ${(totalAmount * .5).toLocaleString("en-US", {style:"currency", currency:"USD"})}`;
+//     } else {
+//         return "Your items are free";
+//     }
+// }
+// const enterLuckyNumber = prompt("Please enter your lucky number");
+// const enterTotalAmount = prompt("Please enter the total amount of your groceries");
+// const runItUp = calculateTotal(enterLuckyNumber, enterTotalAmount);
+// console.log(runItUp);
 /**
  * TODO:
  * Uncomment the line below to generate a random number between 0 and 5.
@@ -207,9 +207,29 @@ console.log(runItUp);
  * and alerts to display to the user what their lucky number was, what their
  * price before the discount was, and what their price after the discount is.
  */
-// Generate a random number between 0 and 6
-// const luckyNumber = Math.floor(Math.random() * 6);
-
+//Generate a random number between 0 and 6
+const luckyNumberGenerator = Math.floor(Math.random() * 6);
+const calculateTotal = (luckyNumber, totalAmount) => {
+    if(!totalAmount) {
+        return "Please enter your grocery total";
+    } else if (luckyNumber === 0) {
+        return `Your total price was ${totalAmount.toLocaleString("en-US", {style:"currency", currency:"USD"})} and is ${(totalAmount).toLocaleString("en-US", {style:"currency", currency:"USD"})}`;
+    } else if (luckyNumber === 1) {
+        return `Your total price was ${totalAmount.toLocaleString("en-US", {style:"currency", currency:"USD"})} and now is ${(totalAmount * .9).toLocaleString("en-US", {style:"currency", currency:"USD"})}`;
+    } else if (luckyNumber === 2) {
+        return `Your total price was ${totalAmount.toLocaleString("en-US", {style:"currency", currency:"USD"})} and now is ${(totalAmount * .75).toLocaleString("en-US", {style:"currency", currency:"USD"})}`;
+    } else if (luckyNumber === 3) {
+        return `Your total price was ${totalAmount.toLocaleString("en-US", {style:"currency", currency:"USD"})} and now is ${(totalAmount * .65).toLocaleString("en-US", {style:"currency", currency:"USD"})}`;
+    } else if (luckyNumber === 4) {
+        return `Your total price was ${totalAmount.toLocaleString("en-US", {style:"currency", currency:"USD"})} and now is ${(totalAmount * .5).toLocaleString("en-US", {style:"currency", currency:"USD"})}`;
+    } else {
+        return "Your items are free";
+    }
+}
+const enterTotalAmount = prompt("Please enter the total amount of your groceries");
+alert(`Your lucky number is ${luckyNumberGenerator}`);
+const runItUp = calculateTotal(luckyNumberGenerator, enterTotalAmount);
+console.log(runItUp);
 
  // * TODO:
  // * Write some JavaScript that uses a `confirm` dialog to ask the user if they
