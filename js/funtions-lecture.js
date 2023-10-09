@@ -112,7 +112,10 @@
 
 // let test = prompt("enter");
 // console.log(typeof test)
-let totalAmount = 10;
-const dollarFormatAmount = totalAmount.toLocaleString("en-US", {style:"currency", currency:"USD"});
-const calc = dollarFormatAmount * .9;
-console.log(calc);
+// let totalAmount = 10;
+// const dollarFormatAmount = totalAmount.toLocaleString("en-US", {style:"currency", currency:"USD"});
+// const calc = dollarFormatAmount * .9;
+// console.log(calc);
+
+let yesNoAnswer = confirm("Would you like to enter a number?");
+console.log(yesNoAnswer);
