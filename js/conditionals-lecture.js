@@ -208,28 +208,39 @@ const randomColor = colors[Math.floor(Math.random() * colors.length)];
  * price before the discount was, and what their price after the discount is.
  */
 //Generate a random number between 0 and 6
-// const luckyNumberGenerator = Math.floor(Math.random() * 6);
-// const calculateTotal = (luckyNumber, totalAmount) => {
-//     if(!totalAmount) {
-//         return "Please enter your grocery total";
-//     } else if (luckyNumber === 0) {
-//         return `Your total price was ${totalAmount.toLocaleString("en-US", {style:"currency", currency:"USD"})} and is ${(totalAmount).toLocaleString("en-US", {style:"currency", currency:"USD"})}`;
-//     } else if (luckyNumber === 1) {
-//         return `Your total price was ${totalAmount.toLocaleString("en-US", {style:"currency", currency:"USD"})} and now is ${(totalAmount * .9).toLocaleString("en-US", {style:"currency", currency:"USD"})}`;
-//     } else if (luckyNumber === 2) {
-//         return `Your total price was ${totalAmount.toLocaleString("en-US", {style:"currency", currency:"USD"})} and now is ${(totalAmount * .75).toLocaleString("en-US", {style:"currency", currency:"USD"})}`;
-//     } else if (luckyNumber === 3) {
-//         return `Your total price was ${totalAmount.toLocaleString("en-US", {style:"currency", currency:"USD"})} and now is ${(totalAmount * .65).toLocaleString("en-US", {style:"currency", currency:"USD"})}`;
-//     } else if (luckyNumber === 4) {
-//         return `Your total price was ${totalAmount.toLocaleString("en-US", {style:"currency", currency:"USD"})} and now is ${(totalAmount * .5).toLocaleString("en-US", {style:"currency", currency:"USD"})}`;
-//     } else {
-//         return "Your items are free";
-//     }
-// }
-// const enterTotalAmount = prompt("Please enter the total amount of your groceries");
-// alert(`Your lucky number is ${luckyNumberGenerator}`);
-// const runItUp = calculateTotal(luckyNumberGenerator, enterTotalAmount);
-// console.log(runItUp);
+const luckyNumberGenerator = Math.floor(Math.random() * 6);
+const calculateTotal = (luckyNumber, totalAmount) => {
+    if(!totalAmount) {
+        return "Please enter your grocery total";
+    }
+    if (luckyNumber === 0) {
+        let totalAmountPrice = totalAmount.toLocaleString("en-US", {style:"currency", currency:"USD"});
+        let message = `No discount given. Your total price is ${totalAmountPrice}.`;
+        return message;
+    } else if (luckyNumber === 1) {
+        let groceryMath = totalAmount * .9;
+        let totalAmountPrice = groceryMath.toLocaleString("en-US", {style:"currency", currency:"USD"});
+        return `Your total price was ${totalAmount} and now is ${totalAmountPrice}`;
+    } else if (luckyNumber === 2) {
+        let groceryMath = totalAmount * .75;
+        let totalAmountPrice = groceryMath.toLocaleString("en-US", {style:"currency", currency:"USD"});
+        return `Your total price was ${totalAmount} and now is ${totalAmountPrice}`;
+    } else if (luckyNumber === 3) {
+        let groceryMath = totalAmount * .65;
+        let totalAmountPrice = groceryMath.toLocaleString("en-US", {style:"currency", currency:"USD"});
+        return `Your total price was ${totalAmount} and now is ${totalAmountPrice}`;
+    } else if (luckyNumber === 4) {
+        let groceryMath = totalAmount * .5;
+        let totalAmountPrice = groceryMath.toLocaleString("en-US", {style:"currency", currency:"USD"});
+        return `Your total price was ${totalAmount} and now is ${totalAmountPrice}`;
+    } else {
+        return "Your items are free";
+    }
+}
+const enterTotalAmount = prompt("Please enter the total amount of your groceries");
+alert(`Your lucky number is ${luckyNumberGenerator}`);
+const runItUp = calculateTotal(luckyNumberGenerator, enterTotalAmount);
+console.log(runItUp);
 
  // * TODO:
  // * Write some JavaScript that uses a `confirm` dialog to ask the user if they
@@ -248,33 +259,33 @@ const randomColor = colors[Math.floor(Math.random() * colors.length)];
  // * Can you refactor your code to use functions?
  // * HINT: The way we prompt for a value could be improved
 
-let yesNoAnswer = confirm("Would you like to enter a number?");
-if (yesNoAnswer) {
-    let enterNum = prompt("Enter a number");
-    let itIsNum = typeof parseFloat(enterNum) == "number";
-    let itIsString = typeof enterNum == "string";
-    if (enterNum % 2 == 0 && itIsNum){
-        console.log("Your number is even");
-        console.log(`Your number plus 100 is ${parseFloat(enterNum) + 100}`);
-        if (enterNum > 0) {
-            console.log("Your number is positive");
-        } else {
-            console.log("Your number is negative");
-        }
-    } else if (enterNum % 2 == 1 && itIsNum) {
-        console.log("Your number is odd");
-        console.log(`Your number plus 100 is ${parseFloat(enterNum) + 100}`);
-        if (enterNum > 0) {
-            console.log("Your number is positive");
-        } else {
-            console.log("Your number is negative");
-        }
-    } else if (itIsString) {
-        alert("please enter a number");
-    }
-} else {
-    console.log("Thank you anyway");
-}
+// let yesNoAnswer = confirm("Would you like to enter a number?");
+// if (yesNoAnswer) {
+//     let enterNum = prompt("Enter a number");
+//     let itIsNum = typeof parseFloat(enterNum) == "number";
+//     let itIsString = typeof enterNum == "string";
+//     if (enterNum % 2 == 0 && itIsNum){
+//         console.log("Your number is even");
+//         console.log(`Your number plus 100 is ${parseFloat(enterNum) + 100}`);
+//         if (enterNum > 0) {
+//             console.log("Your number is positive");
+//         } else {
+//             console.log("Your number is negative");
+//         }
+//     } else if (enterNum % 2 == 1 && itIsNum) {
+//         console.log("Your number is odd");
+//         console.log(`Your number plus 100 is ${parseFloat(enterNum) + 100}`);
+//         if (enterNum > 0) {
+//             console.log("Your number is positive");
+//         } else {
+//             console.log("Your number is negative");
+//         }
+//     } else if (itIsString) {
+//         alert("please enter a number");
+//     }
+// } else {
+//     console.log("Thank you anyway");
+// }
 
 
 
