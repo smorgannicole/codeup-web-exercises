@@ -117,5 +117,7 @@
 // const calc = dollarFormatAmount * .9;
 // console.log(calc);
 
-let yesNoAnswer = confirm("Would you like to enter a number?");
-console.log(yesNoAnswer);
+// let yesNoAnswer = confirm("Would you like to enter a number?");
+// console.log(yesNoAnswer);
+
+
