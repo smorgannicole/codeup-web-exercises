@@ -127,7 +127,7 @@ do {
     let conesAlreadyBought = cones1To5++;
     allCones = allCones - conesAlreadyBought;
 
-    if(allCones > conesAlreadyBought) {
+    if(allCones >= conesAlreadyBought) {
         console.log(`${cones1To5} cones sold.`)
     } else if(allCones < conesAlreadyBought && allCones > 0) {
         console.log(`I can't sell you ${cones1To5}, only have ${allCones} left. I can sell you ${allCones}`);
