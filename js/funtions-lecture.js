@@ -120,4 +120,42 @@
 // let yesNoAnswer = confirm("Would you like to enter a number?");
 // console.log(yesNoAnswer);
 
+const isBoolean = (boolYesOrNo) => {
+    if (boolYesOrNo === true) {
+        return true;
+    } else if (typeof boolYesOrNo === "number") {
+        return false;
+    } else if ([boolYesOrNo]) {
+        return false;
+    } else if (boolYesOrNo === false) {
+        return true;
+    }
+    return true;
 
+
+}
+isBoolean(true)
+
+/**Define a function named isNotString that accepts an input and returns true or false based on whether an input is not a string. Numeric strings will count as strings and should return false.
+
+ isNotString(4)                 // true
+ isNotString(true)              // true
+ isNotString([1, 2, 3])         // true
+ isNotString()                  // true
+ isNotString(null)              // true
+ isNotString("Hello")           // false
+ isNotString("Codeup")          // false
+ isNotString("123")             // false
+ */
+const  isNotString = (anInput) => {
+    if (boolYesOrNo === true) {
+        return true;
+    } else if (typeof boolYesOrNo === "number") {
+        return false;
+    } else if ([boolYesOrNo]) {
+        return false;
+    } else if (boolYesOrNo === false) {
+        return true;
+    }
+    return true;
+}
