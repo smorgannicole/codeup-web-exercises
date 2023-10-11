@@ -121,19 +121,32 @@
 // Cannot sell you 6 cones I only have 3...  // If there are not enough cones
 // Yay! I sold them all! // If there are no more cones
 
-let allCones = Math.floor(Math.random() * 50) + 50;
-do {
-    let cones1To5 = Math.floor(Math.random() * 5) + 1;
-    let conesAlreadyBought = cones1To5++;
-    allCones = allCones - conesAlreadyBought;
+// let allCones = Math.floor(Math.random() * 50) + 50;
+// do {
+//     let cones1To5 = Math.floor(Math.random() * 5) + 1;
+//     let conesAlreadyBought = cones1To5++;
+//     allCones = allCones - conesAlreadyBought;
+//
+//     if(allCones >= conesAlreadyBought) {
+//         console.log(`${cones1To5} cones sold.`)
+//     } else if(allCones < conesAlreadyBought && allCones > 0) {
+//         console.log(`I can't sell you ${cones1To5}, only have ${allCones} left. I can sell you ${allCones}`);
+//     } else {
+//         console.log("Yay I sold them all!");
+//     }
+// } while (allCones >= 0);
+// uiiuyit66eu546ji
 
-    if(allCones >= conesAlreadyBought) {
-        console.log(`${cones1To5} cones sold.`)
-    } else if(allCones < conesAlreadyBought && allCones > 0) {
-        console.log(`I can't sell you ${cones1To5}, only have ${allCones} left. I can sell you ${allCones}`);
+const isBoolean = (boolYesOrNo) => {
+    if (typeof boolYesOrNo === "number") {
+        return false;
+    } else if (boolYesOrNo) {
+        return true;
     } else {
-        console.log("Yay I sold them all!");
+        return false;
     }
-} while (allCones >= 0);
+
+}
+console.log(isBoolean(35))
 
 
