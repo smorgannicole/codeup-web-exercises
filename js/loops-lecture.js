@@ -134,7 +134,6 @@ do {
     } else {
         console.log("Yay I sold them all!");
     }
-} while (allCones >= 0)
-//
+} while (allCones >= 0);
 
 
