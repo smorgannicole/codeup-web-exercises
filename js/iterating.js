@@ -33,11 +33,16 @@
         // let namePosition = names[i];
         console.log(`Using for loop to show index ${i} is name ${names[i]}`);
     }
+    // for of
+    for (let name of names) {
+        console.log(names);
+    }
     /**
      * TODO:
      * Refactor your above code to use a `forEach` loop
      */
-    names.forEach(function(name, index){
+    //aka anonymous element
+    names.forEach(function/*can omit this*/(name, index){
         console.log(`Using for each to show at index ${index}: ${name}`);
     })
     /**
