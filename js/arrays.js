@@ -36,7 +36,7 @@
 //     ..."watermelon"
 // ]
 /** PRACTICE PROBLEMSSSSSS */
-    (function(){
+
         "use strict";
 
         /**
@@ -105,7 +105,6 @@
 //     }
 // }
 const names = ["Gina", "George", "Geoffrey", "Gohnathan"];
-const nameCount = names.length;
-names.forEach(name => {
-    console.log(name);
-});
+names.forEach(function(){
+    console.log(names[0]);
+    });
