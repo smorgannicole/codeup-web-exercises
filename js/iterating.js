@@ -35,7 +35,7 @@
     }
     // for of
     for (let name of names) {
-        console.log(names);
+        console.log(name);
     }
     /**
      * TODO:
@@ -43,7 +43,7 @@
      */
     //aka anonymous element
     names.forEach(function/*can omit this*/(name, index){
-        console.log(`Using for each to show at index ${index + 1}: ${name}`);
+        console.log(`Using for each to show at index ${index}: ${name}`);
     })
     /**
      * TODO:
@@ -59,19 +59,22 @@
      *  > last([1, 2, 3, 4, 5]) // return 5
      */
     const returnFirstElement = (array) => {
-        return array[0];
+        let result = array[0];
+        return result;
     }
     let getArray = returnFirstElement(names);
     console.log(getArray);
 
     const returnSecondElement = (array) => {
-        return array[1];
+        let result = array[1];
+        return result;
     }
     let getArray2 = returnSecondElement(names);
     console.log(getArray2);
 
     const returnLastElement = (array) => {
-        return array[numOfElements - 1];
+        let result = array[numOfElements - 1];
+        return result;
     }
     let getLastElement = returnLastElement(names);
     console.log(getLastElement);
