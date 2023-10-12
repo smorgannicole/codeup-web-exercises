@@ -28,8 +28,8 @@ let backToString = planetsArray.join("<br>");
 //useful bc you could be inserting HTML into the dom as a string
 
 
-let planetsHTML = planetsArray.join(<li></li>);
-planetsHTML = `<ul></li>${planetsHTML}</li></ul>`;
+let planetsHTML = planetsArray.join(`</li><li>`);
+planetsHTML = `<ul><li>${planetsHTML}</li></ul>`;
 
 
 console.log(planetsHTML);
