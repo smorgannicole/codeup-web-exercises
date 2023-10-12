@@ -43,7 +43,7 @@
      */
     //aka anonymous element
     names.forEach(function/*can omit this*/(name, index){
-        console.log(`Using for each to show at index ${index}: ${name}`);
+        console.log(`Using for each to show at index ${index + 1}: ${name}`);
     })
     /**
      * TODO:
