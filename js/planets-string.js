@@ -25,9 +25,12 @@ planetsArray = planetsString.split("|");
      */
 let backToString = planetsArray.join("<br>");
 //console.log(backToString)
+//useful bc you could be inserting HTML into the dom as a string
 
 
+let planetsHTML = planetsArray.join(<li></li>);
+planetsHTML = `<ul></li>${planetsHTML}</li></ul>`;
 
-let planetsHTML = "<ul><li>Mercury</li><li>Venus</li><li>Earth</li><li>Mars</li><li>Jupiter</li><li>Saturn</li><li>Uranus</li><li>Neptune</li></ul>";
+
 console.log(planetsHTML);
 })();
