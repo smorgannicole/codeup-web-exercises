@@ -19,7 +19,7 @@
      * Create log statements that will print each of the names individually by
      * accessing each element's index.
      */
-    console.log(`Name one is ${names[0]}`);
+    console.log(`Name one is ${names[0]}`); //bracket notation
     console.log(`Name two is ${names[1]}`);
     console.log(`Name three is ${names[2]}`);
     console.log(`Name four is ${names[3]}`);
