@@ -11,16 +11,16 @@
      *  > console.log(person.firstName) // "Rick"
      *  > console.log(person.lastName) // "Sanchez"
      */
-const person = {
-    firstName: "Morgan",
-    lastName: "Smith",
-    sayHello: function() {
-        return `Greetings! from ${this.firstName} ${this.lastName}`;
-    }
-}
-    console.log(person.firstName);
-    console.log(person.lastName);
-    console.log(person.sayHello());
+// const person = {
+//     firstName: "Morgan",
+//     lastName: "Smith",
+//     sayHello: function() {
+//         return `Greetings! from ${this.firstName} ${this.lastName}`;
+//     }
+// }
+//     console.log(person.firstName);
+//     console.log(person.lastName);
+//     console.log(person.sayHello());
 
 
     /**
@@ -46,12 +46,21 @@ const person = {
      * represents one shopper. Use a foreach loop to iterate through the array,
      * and console.log the relevant messages for each person
      */
+    var shoppers = [
+        {name: 'Cameron', amount: 180},
+        {name: 'Ryan', amount: 250},
+        {name: 'George', amount: 320}
+    ];
+    shoppers.forEach((shopper) => {
+        let discount = 12;
+        if(shopper.amount >= 200) {
+            let discountMath = (shopper.amount * (1 - (discount / 100)));
+            console.log(`${shopper.name}'s total before the discount was ${shopper.amount.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}. They received a ${discount}% discount which brought their total to ${discountMath.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}.`);
+        } else {
+            console.log(`${shopper.name}'s total is ${shopper.amount.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}.`);
+        }
+    });
 
-    // var shoppers = [
-    //     {name: 'Cameron', amount: 180},
-    //     {name: 'Ryan', amount: 250},
-    //     {name: 'George', amount: 320}
-    // ];
 
     /** TODO:
      * Create an array of objects that represent books and store it in a
