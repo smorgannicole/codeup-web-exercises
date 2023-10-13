@@ -46,20 +46,20 @@
      * represents one shopper. Use a foreach loop to iterate through the array,
      * and console.log the relevant messages for each person
      */
-    var shoppers = [
-        {name: 'Cameron', amount: 180},
-        {name: 'Ryan', amount: 250},
-        {name: 'George', amount: 320}
-    ];
-    shoppers.forEach((shopper) => {
-        let discount = 12;
-        if(shopper.amount >= 200) {
-            let discountMath = (shopper.amount * (1 - (discount / 100)));
-            console.log(`${shopper.name}'s total before the discount was ${shopper.amount.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}. They received a ${discount}% discount which brought their total to ${discountMath.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}.`);
-        } else {
-            console.log(`${shopper.name}'s total is ${shopper.amount.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}.`);
-        }
-    });
+    // let shoppers = [
+    //     {name: 'Cameron', amount: 180},
+    //     {name: 'Ryan', amount: 250},
+    //     {name: 'George', amount: 320}
+    // ];
+    // shoppers.forEach((shopper) => {
+    //     let discount = 12;
+    //     if(shopper.amount >= 200) {
+    //         let discountMath = (shopper.amount * (1 - (discount / 100)));
+    //         console.log(`${shopper.name}'s total before the discount was ${shopper.amount.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}. They received a ${discount}% discount which brought their total to ${discountMath.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}.`);
+    //     } else {
+    //         console.log(`${shopper.name}'s total is ${shopper.amount.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}.`);
+    //     }
+    // });
 
 
     /** TODO:
@@ -74,6 +74,46 @@
      * > console.log(books[0].author.firstName) // "Douglas"
      * > console.log(books[0].author.lastName) // "Adams"
      */
+    // let books = [
+    //     {
+    //         title: "The Great Gatsby",
+    //         author: {
+    //             firstName: "F. Scott",
+    //             lastName: "Fitzgerald"
+    //         },
+    //     },
+    //     {
+    //         title: "The Lord of the Rings",
+    //         author: {
+    //             firstName: "J. R. R.",
+    //             lastName: "Tolkien"
+    //         },
+    //     },
+    //     {title: "To Kill a Mockingbird",
+    //         author: {
+    //             firstName: "Harper",
+    //             lastName: "Lee"
+    //         }
+    //     },
+    //     {title: "The Catcher in the Rye",
+    //         author: {
+    //             firstName: "J. D.",
+    //             lastName: "Salinger"
+    //         }
+    //     },
+    //     {title: "One Hundred Years of Solitude",
+    //         author: {
+    //             firstName: "Gabriel",
+    //             lastName: "Márquez"
+    //         }
+    //     },
+    // ];
+    // for(let book of books) {
+    //     const{author, title} = book;
+    //     const authorName = `${author.firstName} ${author.lastName}`
+    //     const bookNumber = books.indexOf(book);
+    //     console.log(`Book #${bookNumber + 1} is ${title} written by ${authorName}`);
+    // }
 
     /**
      * TODO:
@@ -110,5 +150,31 @@
      *   outputs the information described above. Refactor your loop to use your
      *   `showBookInfo` function.
      */
+    const createBook = (insertTitle, insertFirstName, insertLastName) => {
+        return {
+            title: insertTitle,
+            author: {
+                firstName: insertFirstName,
+                lastName: insertLastName,
+            },
+        };
+    }
+    const bookCreation = createBook("My title", "My first name", "My last name");
+    console.log(bookCreation);
+
+    const books = [
+        createBook("The Great Gatsby", "F. Scott Fitzgerald"),
+        createBook("To Kill a Mockingbird", "Harper Lee"),
+        createBook("1984", "George Orwell")
+    ];
+
+    function showBookInfo(book) {
+        console.log(`Title: ${book.title}`);
+        console.log(`Author: ${book.author.firstName} ${book.author.lastName}`);
+        console.log('---');
+    }
+    for (const book of books) {
+        showBookInfo(book);
+    }
 
 })();
