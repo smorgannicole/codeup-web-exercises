@@ -14,8 +14,8 @@
 // const person = {
 //     firstName: "Morgan",
 //     lastName: "Smith",
-//     sayHello: function() {
-//         return `Greetings! from ${this.firstName} ${this.lastName}`;
+//     sayHello: function() { //use traditional function as a method in objects
+//         return `Greetings! from ${this.firstName} ${this.lastName}`; // use "this" rather than "person" bc we're using method
 //     }
 // }
 //     console.log(person.firstName);
@@ -51,7 +51,7 @@
     //     {name: 'Ryan', amount: 250},
     //     {name: 'George', amount: 320}
     // ];
-    // shoppers.forEach((shopper) => {
+    // shoppers.forEach(shopper => { // when we are using only element of for.each, we can take out the parenthesis
     //     let discount = 12;
     //     if(shopper.amount >= 200) {
     //         let discountMath = (shopper.amount * (1 - (discount / 100)));
@@ -74,46 +74,46 @@
      * > console.log(books[0].author.firstName) // "Douglas"
      * > console.log(books[0].author.lastName) // "Adams"
      */
-    // let books = [
-    //     {
-    //         title: "The Great Gatsby",
-    //         author: {
-    //             firstName: "F. Scott",
-    //             lastName: "Fitzgerald"
-    //         },
-    //     },
-    //     {
-    //         title: "The Lord of the Rings",
-    //         author: {
-    //             firstName: "J. R. R.",
-    //             lastName: "Tolkien"
-    //         },
-    //     },
-    //     {title: "To Kill a Mockingbird",
-    //         author: {
-    //             firstName: "Harper",
-    //             lastName: "Lee"
-    //         }
-    //     },
-    //     {title: "The Catcher in the Rye",
-    //         author: {
-    //             firstName: "J. D.",
-    //             lastName: "Salinger"
-    //         }
-    //     },
-    //     {title: "One Hundred Years of Solitude",
-    //         author: {
-    //             firstName: "Gabriel",
-    //             lastName: "Márquez"
-    //         }
-    //     },
-    // ];
-    // for(let book of books) {
-    //     const{author, title} = book;
-    //     const authorName = `${author.firstName} ${author.lastName}`
-    //     const bookNumber = books.indexOf(book);
-    //     console.log(`Book #${bookNumber + 1} is ${title} written by ${authorName}`);
-    // }
+    let books = [
+        {
+            title: "The Great Gatsby",
+            author: {
+                firstName: "F. Scott",
+                lastName: "Fitzgerald"
+            },
+        },
+        {
+            title: "The Lord of the Rings",
+            author: {
+                firstName: "J. R. R.",
+                lastName: "Tolkien"
+            },
+        },
+        {title: "To Kill a Mockingbird",
+            author: {
+                firstName: "Harper",
+                lastName: "Lee"
+            }
+        },
+        {title: "The Catcher in the Rye",
+            author: {
+                firstName: "J. D.",
+                lastName: "Salinger"
+            }
+        },
+        {title: "One Hundred Years of Solitude",
+            author: {
+                firstName: "Gabriel",
+                lastName: "Márquez"
+            }
+        },
+    ];
+    for(let book of books) {
+        const{author, title} = book;
+        const authorName = `${author.firstName} ${author.lastName}`
+        const bookNumber = books.indexOf(book);
+        console.log(`Book #${bookNumber + 1} is ${title} written by ${authorName}`);
+    }
 
     /**
      * TODO:
