@@ -43,17 +43,33 @@
 
 // build a class for car
 
-class Car {
-    constructor(make, model, yearOfManu, miles) {
-            this.make = make,
-            this.model = model,
-            this.yearOfManu = yearOfManu,
-            this.miles = miles
-        }
-        vroom() {
-            console.log(`This car is a ${this.make} ${this.model}, made in the year ${this.yearOfManu} with ${this.miles} miles.`);
-        }
-}
+// class Car {
+//     constructor(make, model, yearOfManu, miles) {
+//             this.make = make,
+//             this.model = model,
+//             this.yearOfManu = yearOfManu,
+//             this.miles = miles
+//         }
+//         vroom() {
+//             console.log(`This car is a ${this.make} ${this.model}, made in the year ${this.yearOfManu} with ${this.miles} miles.`);
+//         }
+// }
+//
+// let car1 = new Car("Nissan", "Altima", "2015", "65,000");
+// car1.vroom()
 
-let car1 = new Car("Nissan", "Altima", "2015", "65,000");
-car1.vroom()
+class Person {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    sayHello() {
+        console.log(`Hello, my name is ${this.name}.`);
+    }
+}
+const person1 = new Person('Alice', 30);
+const person2 = new Person('Bob', 25);
+
+person1.sayHello(); // Output: Hello, my name is Alice.
+person2.sayHello(); // Output: Hello, my name is Bob.
