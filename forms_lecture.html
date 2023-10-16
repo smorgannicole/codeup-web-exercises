@@ -6,7 +6,9 @@
 </head>
 <body>
     <h1>Register for the website</h1>
-    <form method="POST" action="#"> <!-- sending it to itself. "post" doesnt pass parameters -->
+    <form method="POST" action="https://request-inspector.glitch.me"> <!-- sending it to itself. "post" doesnt pass parameters -->
+        <fieldset>
+            <legend>
         <label for="username">
             <span>Username</span>
         <input type="text" name="username" placeholder="Username" required>
@@ -16,6 +18,8 @@
             <span>Password</span>
         <input type="password" name="password" placeholder="Password" required>
         <!--<input type="submit" value="Go">-->
+            </legend>
+        </fieldset>
         </label>
         <section>
             <h2>What is your role?</h2>
