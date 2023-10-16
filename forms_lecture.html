@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Forms</title>
+</head>
+<body>
+    <h1>Register for the website</h1>
+    <form method="POST" action="#"> <!-- sending it to itself. "post" doesnt pass parameters -->
+        <label for="username">
+            <span>Username</span>
+        <input type="text" name="username" placeholder="Username" required>
+        </label>
+        <br>
+        <label for="password">
+            <span>Password</span>
+        <input type="password" name="password" placeholder="Password" required>
+        <!--<input type="submit" value="Go">-->
+        </label>
+        <section>
+            <h2>What is your role?</h2>
+            <label>
+            <input type="radio" name="role" value="designer" required>
+                <span>Designer</span>
+            </label>
+            <br>
+            <label>
+                <input type="radio" name="role" value="developer">
+                <span>Developer</span>
+            </label>
+            <br>
+            <label>
+                <input type="radio" name="role" value="PM">
+                <span>Project manager</span>
+            </label>
+        </section>
+        <section>
+            <h2>What kind of pizzas do you like?</h2>
+            <label>
+                <input type="checkbox" name="pizza likes" value="peperoni" required>
+                <span>Peperoni</span>
+            </label>
+            <br>
+            <label>
+                <input type="checkbox" name="pizza likes" value="cheese">
+                <span>Cheese</span>
+            </label>
+            <br>
+            <label>
+                <input type="checkbox" name="pizza likes" value="hawaiian">
+                <span>Hawaiian</span>
+            </label>
+        </section>
+        <label>Tell us about yourself:</label>
+        <br>
+        <textarea name="bio"></textarea>
+        <h2>Favorite wing joint</h2>
+        <select name="fav_wing_joint">
+            <option value="bw">buffalo wold wings</option>
+            <option value="ws">wing stop</option>
+            <option value="wd">wing daddys</option>
+            <option value="p">pluckers</option>
+            <option value="ab">anchor bar</option>
+        </select>
+        <button>GO</button>
+    </form>
+</body>
+</html>
