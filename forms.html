@@ -1,48 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Register With Us</title>
 </head>
 <body>
-    <form method="POST" action="https://request-inspector.glitch.me/">
+<h1>Register with us!</h1>
+<form method="POST" action="https://request-inspector.glitch.me/">
+    <fieldset>
+        <legend>Basic</legend>
         <label for="email">
             <span>E-mail</span>
-            <input type="text" name="email" placeholder="E-mail" required>
+            <input type="email" id="email" name="email" placeholder="E-mail" required>
         </label>
-            <br>
+        <br>
         <label for="password">
             <span>Password</span>
-        <input type="password" name="password" placeholder="Password" required>
-            <br>
-        <label>Tell us about yourself:</label>
-            <br>
-        <textarea name="bio"></textarea>
-            <br>
+            <input type="password" id="password" name="password" placeholder="Password" required>
         </label>
-          <section>
-          <h2>How did you hear about us?</h2>
+        <button>Submit</button>
+    </fieldset>
+    <br>
+    <label>
+        <span>Bio</span>
+        <br>
+        <textarea id="bio" name="bio" placeholder="Tell us about yourself..."></textarea>
+    </label>
+    <br>
+    <section>
+        <h2>How did you hear about us?</h2>
         <label>
-            <input type="radio" name="hear_about" value="billboard" required>
+            <input type="radio" id="billboard" name="hear_about" value="billboard" required>
             <span>Billboard</span>
         </label>
         <br>
         <label>
-            <input type="radio" name="hear_about" value="radio_ad">
+            <input type="radio" id="radio_ad" name="hear_about" value="radio_ad">
             <span>Radio Advertisement</span>
         </label>
         <br>
         <label>
-            <input type="radio" name="hear_about" value="internet_ad">
+            <input type="radio" id="internet_ad" name="hear_about" value="internet_ad">
             <span>Internet Advertisement</span>
-          </section>
         </label>
-        <label>
-            <input type="radio" name="hear_about" value="other">
-            <span>Other</span>
-          </section>
-        </label>
-        <h2>What web browser are you using?</h2>
+    </section>
+    <label>
+        <input type="radio" id="other" name="hear_about" value="other">
+        <span>Other</span>
+    </label>
+    <h2>What web browser are you using?</h2>
+    <label>
         <select name="web_browser">
             <option value="gc">Google Chrome</option>
             <option value="safari">Safari</option>
@@ -50,6 +57,9 @@
             <option value="ie">Internet Explorer</option>
             <option value="me">Microsoft Edge</option>
         </select>
-    </form>
+    </label>
+    <br>
+    <button>Submit</button>
+</form>
 </body>
 </html>
