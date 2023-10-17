@@ -5,12 +5,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Intro to CSS</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <!-- body is selector-->
+    <!-- font-family: "Papyrus"; is declaration -->
+    <!-- font-family: -->
+    <!-- "Papyrus" is property -->
+    <!-- declaration block font-family: "Papyrus";
+            color: #404040; -->
+    <style>
+        body {
+            font-family: "Papyrus";
+            color: #404040;
+
+        }
+
+        h1 {
+            color: red;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+        }
+
+        p {
+            font-style: italic;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        .article-background {
+            background-color: #eeeeeee;
+        }
+
+    </style>
+    <!--period knows its looking for a class -->
+    <!-- any property having to do with font/text is inherited-->
+    <!--(hex code)-->
 </head>
 ​
 <body>
 <header>
-    <h1 class="fancy-header">My Basic Website</h1>
+    <h1>My Basic Website</h1>
+    <!-- two properties applied inline-->
     <nav>
         <ul>
             <li><a href="#">Home</a></li>
@@ -21,7 +57,7 @@
     </nav>
 </header>
 ​
-<section>
+<section class="article-background">
     <article>
         <h2>Article Title</h2>
         <p>This is a sample paragraph for our article. It contains text, and can be styled using CSS. Lorem ipsum
