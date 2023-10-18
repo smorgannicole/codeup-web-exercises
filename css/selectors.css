@@ -1,1 +1,30 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><link rel="icon" href="/images/favicon.ico"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#000000"/><meta name="description" content="A React application to view the Codeup Curriculum"/><link rel="apple-touch-icon" href="/logo192.png"/><link rel="manifest" href="/manifest.json"/><title>Codeup Curriculum</title><script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script><script type="text/javascript">WebFont.load({google:{families:["Jost:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic"]}})</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/docco.min.css"><script defer="defer" src="/static/js/main.f6dbbc37.js"></script><link href="/static/css/main.3a7ed73f.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div></body></html>
+/* selector for id="container" */
+#container {
+    margin: 50px auto;
+    width: 500px;
+    padding: 10px;
+}
+
+/*  selector for all "h1" elements
+    that are a descendent of id="container"
+    and have a class of "fancy-header" */
+#container h1.fancy-header {
+    color: blue;
+    text-decoration: underline;
+}
+
+/* selector for all "em" elements */
+em {
+    font-weight: bold;
+}
+
+/* selector for all elements with class="article" */
+.article {
+    clear: both;
+}
+
+/*  selector for all "anchor" elements
+    that are a direct child of an element with class="article" */
+.article > a {
+    float: right;
+}
