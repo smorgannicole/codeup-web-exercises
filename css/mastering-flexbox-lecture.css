@@ -1,0 +1,29 @@
+@import "mastering-flexbox-base.css";
+
+/* This is the file we will use to experiment with flexbox */
+.container {
+    display: flex;
+    /*creates main axis and cross axis
+       */
+    /*flex direction column turns main axis 90 deg*/
+    min-height: 80dvh;
+    align-items: start;
+    justify-content: start;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    /*    main axis = justify-content */
+    /*    cross axis = align-items*/
+}
+
+.item {
+    /*flex-grow: 0; ratio*!*/
+    /*flex-shrink: 0;*/
+    /*flex-basis: auto;*/
+    flex: 0 1 auto; /* if you want something to shrink, best value to use is 0*/
+}
+
+#item-3 {
+    flex-grow: 1;
+    align-self: stretch;
+}
