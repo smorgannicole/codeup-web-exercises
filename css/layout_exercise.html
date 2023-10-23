@@ -12,35 +12,58 @@
             <div class="column img-dimensions">
                 <img src="../img/logo.svg" alt="Fylo logo next to brand symbol">
             </div>
-            <div class="column align-items-end">
-                <ul class="d-flex gap-30">
-                    <li>Features</li>
-                    <li>Team</li>
-                    <li>Sign In</li>
+            <div class="column align-items-end justify-content-center">
+                <ul class="d-flex">
+                    <li><a href="#" class="p-20">Features</a></li>
+                    <li><a href="#" class="p-20">Team</a></li>
+                    <li><a href="#" class="p-20">Sign In</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-    <section class="container">
+
+    <section class="container hero-height">
         <div class="row">
             <div class="column flex-grow-1 justify-content-center">
                 <form id="sign-up" name="email">
-                    <h2>All your files in one secure location, accessible anywhere.</h2>
+                    <h2 class="m-20">All your files in one secure location, accessible anywhere.</h2>
                     <p>Fylo stores your most important files in one secure location. Access them wherever you need,
                         share
                         and
                         collaborate with friends, family, and co-workers.
                     </p>
-                    <label>
-                        <input type="email" name="email" id="email"
-                               placeholder="Enter your email..."/>
-                    </label>
-                    <button class="button-custom">Get Started</button>
+                    <div class="d-flex hero-inputs">
+                        <label class="d-flex flex-grow-2">
+                            <input type="email" name="email" id="email"
+                                   placeholder="Enter your email..." required class="flex-grow-1"/>
+                        </label>
+                        <button class="button-custom flex-grow-1">Get Started</button>
+                    </div>
                 </form>
             </div>
             <div class="container flex-grow-1">
-                <img src="../img/illustration-1.svg"
+                <img class="img-height" src="../img/illustration-1.svg"
                      alt="Little people adding mail to large file folder"/>
+            </div>
+        </div>
+    </section>
+
+    <section class="container bottom-height">
+        <div class="row">
+            <div class="column">
+                <h2>Stay productive, wherever you are</h2>
+                <p>Never let location be an issue when accessing your files. Fylo has you covered for all of your file
+                    storage needs.</p>
+                <p>Securely share files and folders with friends, family and colleagues for live collaboration. No email
+                    attachments required!</p>
+                <p><a href="#">See how Fylo works</a></p>
+                <div class="column">
+                    <p>“Fylo has improved our team productivity by an order of magnitude. Since making the switch our
+                        team has become a well-oiled collaboration machine.</p>
+                </div>
+            </div>
+            <div class="column">
+                <img class="img-height" src="../img/illustration-2.svg" alt="">
             </div>
         </div>
     </section>

@@ -27,6 +27,7 @@
 body {
     font-family: var(--family-body);
     max-width: var(--width);
+    padding: 65px 80px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -46,3 +47,25 @@ h1, h2, h3, h4, h5, h6 {
     height: 45px;
 }
 
+.hero-inputs {
+    max-width: 536px;
+    gap: 10px;
+}
+
+.hero-inputs button {
+    box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.16);
+}
+
+.hero-height {
+    max-height: 309px;
+    padding-top: 100px;
+}
+
+.img-height {
+    height: 100%;
+}
+
+.bottom-height {
+    max-height: 621px;
+    padding-top: 400px;
+}

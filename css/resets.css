@@ -1,21 +1,21 @@
 * {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
-	-webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
 }
 
 body {
-	line-height: 1.5;
+    line-height: 1.5;
 }
 
 a {
-	color: inherit;
-	text-decoration: unset;
+    color: inherit;
+    text-decoration: unset;
 }
 
 ul {
-	list-style: none;
+    list-style: none;
 }
 
 img,
@@ -23,6 +23,12 @@ picture,
 video,
 canvas,
 svg {
-	display: block;
-	max-width: 100%;
+    display: block;
+    max-width: 100%;
+}
+
+button {
+    outline: unset;
+    border: unset;
+    cursor: pointer;
 }
