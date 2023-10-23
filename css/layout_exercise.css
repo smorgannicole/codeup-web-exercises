@@ -1,0 +1,48 @@
+@import "layout.css";
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    /*main colors*/
+    --very-dark-blue: hsl(243, 87%, 12%);
+    --desaturated-blue: hsl(238, 22%, 44%);
+    /*accent colors*/
+    --bright-blue: hsl(224, 93%, 58%);
+    --moderate-cyan: hsl(170, 45%, 43%);
+    /*neutral colors*/
+
+    --light-grayish-blue: hsl(240, 75%, 98%);
+    --light-gray: hsl(0, 0%, 75%);
+    /*typography*/
+    --width: 1440px;
+    --font-size-paragraph: 16px;
+    /*fonts*/
+    --family: "Raleway", sans-serif;
+    --weight-400: 400;
+    --weight-700: 700;
+    /*body*/
+    --family-body: "Open Sans", sans-serif;
+    --weight-body-400: 400;
+}
+
+body {
+    font-family: var(--family-body);
+    max-width: var(--width);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--family)
+}
+
+.img-dimensions {
+    height: 49px;
+    max-width: 166px;
+}
+
+.button-custom {
+    background: var(--bright-blue);
+    color: #fff;
+    border-radius: 3.13px;
+    max-width: 200px;
+    height: 45px;
+}
+
