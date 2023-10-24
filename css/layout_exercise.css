@@ -69,3 +69,37 @@ h1, h2, h3, h4, h5, h6 {
     max-height: 621px;
     padding-top: 400px;
 }
+
+.fylo-hyperlink {
+    color: #3DA08F;
+    margin-top: 10px;
+}
+
+.hyperlink-underline {
+    background: #3DA08F;
+    width: 166px;
+    height: 1px;
+    flex-shrink: 0;
+    margin-bottom: 10px;
+}
+
+.quotation {
+    color: black;
+    font-size: 45px;
+    font-style: normal;
+    font-weight: 400;
+    
+}
+
+.fylo-testimony {
+    width: 356px;
+    height: 215px;
+    flex-shrink: 0;
+    background: #fff;
+    padding-bottom: 74px;
+    padding-left: 33px;
+    padding-right: 34px;
+    border-radius: 5px;
+    box-shadow: 0 10px 5px rgba(56, 56, 56, 0.05);
+}
+
