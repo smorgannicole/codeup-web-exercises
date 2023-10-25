@@ -88,7 +88,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 45px;
     font-style: normal;
     font-weight: 400;
-    
+
 }
 
 .fylo-testimony {
@@ -101,5 +101,20 @@ h1, h2, h3, h4, h5, h6 {
     padding-right: 34px;
     border-radius: 5px;
     box-shadow: 0 10px 5px rgba(56, 56, 56, 0.05);
+}
+
+/*will always be last*/
+@media screen and (max-width: 780px) {
+    .container.hero .row {
+        flex-direction: column;
+    }
+
+    .container.hero .column:first-child {
+        order: 2;
+    }
+
+    .container.hero .column:last-child {
+        order: 1;
+    }
 }
 
