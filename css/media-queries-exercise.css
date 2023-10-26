@@ -6,6 +6,14 @@ body {
     line-height: 1;
 }
 
+h1, h2, .par-container, .top-li, #nav-links {
+    font-weight: bold;
+}
+
+h2 {
+    font-weight: bolder;
+}
+
 .page-wrapper {
     padding: 50px 200px;
 }
@@ -37,23 +45,14 @@ header {
         flex-direction: column;
     }
 
-    header.container .row.headerRow {
-        display: unset;
-    }
-
-    header.container .column.name {
-        align-items: stretch;
-    }
-
-    #nav-links {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
     h1 {
         font-size: 55px;
         text-align: center;
         padding-bottom: 35px;
+    }
+
+    #nav-links {
+        flex-direction: column;
     }
 
     li {
