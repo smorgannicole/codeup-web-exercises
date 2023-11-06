@@ -1,7 +1,7 @@
 function updateTimer(timer) {
     if (timer === 0) {
         alert('EXTERMINATE!');
-        document.body.innerHTML = '';
+        document.body.innerHTML = ''; //takes whatever is in html and gets rid of it. You can also add a video or anything using html
     } else if (timer > 0) {
         document.getElementById('timer').innerHTML = timer;
     }
