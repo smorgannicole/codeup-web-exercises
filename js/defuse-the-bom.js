@@ -7,20 +7,18 @@ function updateTimer(timer) {
     }
 }
 
-function defuseTheBOM(startTime) {
-    clearInterval(startTime);
+function defuseTheBOM(countDown) {
+    clearInterval(countDown);
 }
 
 //IIFE
 (() => {
     let detonationTimer = 5;
-
     const startTime = setInterval(() => {
         detonationTimer--;
         updateTimer(detonationTimer)
     }, 1000)
-
-    var defuser = document.getElementById('defuser');
+    let defuser = document.getElementById('defuser');
     defuser.addEventListener('click', () => {
         defuseTheBOM(startTime);
     });
