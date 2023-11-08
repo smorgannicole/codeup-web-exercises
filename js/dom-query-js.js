@@ -29,40 +29,53 @@
 //     }
 // }
 
+const singleClick = (oneClick, header1) => {
+    oneClick.addEventListener("click", (e) => {
+        header1.style.backgroundColor = "blue";
+    });
+}
+const doubleClick = (twoClicks, para) => {
+    twoClicks.addEventListener("dblclick", (e) => {
+        for (let singlep of para) {
+            singlep.style.fontSize = `18px`;
+        }
+    });
+}
+const hoverOnButton = (hoverRound, listItem1) => {
+    hoverRound.addEventListener(`mouseenter`, e => {
+        for (let singleli of listItem1) {
+            singleli.style.color = `red`;
+        }
+    })
+}
+const leaveThatButton = (leaveRound, listItem2) => {
+    leaveRound.addEventListener(`mouseleave`, e => {
+        for (let singleli of listItem2) {
+            singleli.style.color = `black`;
+        }
+    })
+}
+
 //IIFE
 (() => {
     // document.body.addEventListener("click", e => {
     //     const buttonAttr = e.target.getAttribute(`data-buttonNum`)
     //     buttonFunct(buttonAttr);
     const clickBtn = document.querySelector(".click-btn");
-    clickBtn.addEventListener("click", (e) => {
-        const h1 = document.querySelector(`#main-header`)
-        h1.style.backgroundColor = "blue";
+    const h1 = document.querySelector(`#main-header`)
+    singleClick(clickBtn, h1)
 
-    });
     const clickBtnDbl = document.querySelector(".click-btn2");
-    clickBtnDbl.addEventListener("dblclick", (e) => {
-        const p = document.querySelectorAll(`p`)
-        for (let singlep of p) {
-            singlep.style.fontSize = `18px`;
-        }
+    const p = document.querySelectorAll(`p`)
+    doubleClick(clickBtnDbl, p)
 
-
-    });
     const hoverBtn = document.querySelector(`.hover-btn`)
-    hoverBtn.addEventListener(`mouseenter`, e => {
-        const li = document.querySelectorAll(`li`)
-        for (let singleli of li) {
-            singleli.style.color = `red`;
-        }
-    })
+    const li1 = document.querySelectorAll(`li`)
+    hoverOnButton(hoverBtn, li1)
+
     const leaveBtn = document.querySelector(`.leave-btn`)
-    hoverBtn.addEventListener(`mouseleave`, e => {
-        const li = document.querySelectorAll(`li`)
-        for (let singleli of li) {
-            singleli.style.color = `black`;
-        }
-    })
+    const li2 = document.querySelectorAll(`li`)
+    leaveThatButton(leaveBtn, li2)
 
     // });
 })();
