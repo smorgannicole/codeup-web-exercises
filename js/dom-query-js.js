@@ -41,16 +41,16 @@ const doubleClick = (twoClicks, para) => {
         }
     });
 }
-const hoverOnButton = (hoverRound, listItem1) => {
+const hoverOnButton = (hoverRound, listItem) => {
     hoverRound.addEventListener(`mouseenter`, e => {
-        for (let singleli of listItem1) {
+        for (let singleli of listItem) {
             singleli.style.color = `red`;
         }
     })
 }
-const leaveThatButton = (leaveRound, listItem2) => {
+const leaveThatButton = (leaveRound, listItem) => {
     leaveRound.addEventListener(`mouseleave`, e => {
-        for (let singleli of listItem2) {
+        for (let singleli of listItem) {
             singleli.style.color = `black`;
         }
     })
@@ -70,12 +70,11 @@ const leaveThatButton = (leaveRound, listItem2) => {
     doubleClick(clickBtnDbl, p)
 
     const hoverBtn = document.querySelector(`.hover-btn`)
-    const li1 = document.querySelectorAll(`li`)
-    hoverOnButton(hoverBtn, li1)
+    const li = document.querySelectorAll(`li`)
+    hoverOnButton(hoverBtn, li)
 
     const leaveBtn = document.querySelector(`.leave-btn`)
-    const li2 = document.querySelectorAll(`li`)
-    leaveThatButton(leaveBtn, li2)
+    leaveThatButton(leaveBtn, li)
 
     // });
 })();
