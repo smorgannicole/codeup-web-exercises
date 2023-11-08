@@ -27,7 +27,7 @@ const changeCard = (insertCardHere, changeThatColor) => {
 
 
     const profCard = document.querySelector(`#profile-card`)
-    const colorArr = [`background-color: #F9EDDC`, `background-color: #D98C4A`, `background-color: #E3C595`, `background-color: #4D3338`];
+    const colorArr = [`background-color: #F9EDDC`, `background-color: #D98C4A`, `background-color: #E3C595`, `background-color: #4D3338`, `background-color: #DEBC85`];
     setInterval(() => {
         const randoColor = colorArr[Math.floor(Math.random() * colorArr.length)];
         changeCard(profCard, randoColor)
