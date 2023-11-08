@@ -2,28 +2,24 @@ const button1Funct = (buttonAttribute) => {
     if (buttonAttribute === "button-1") {
         const mainHeader = document.querySelector(`#main-header`);
         mainHeader.innerHTML = "JavaScript is Cool";
-    }
-    if (buttonAttribute === "button-2") {
+    } else if (buttonAttribute === "button-2") {
         const subHeader = document.querySelector(`#sub-header`);
         subHeader.style.color = "blue";
-    }
-    if (buttonAttribute === "button-3") {
+    } else if (buttonAttribute === "button-3") {
         const listItems = document.querySelectorAll(`li`)
         for (let item of listItems) {
             if (item.dataset.dbid === `1`) {
                 item.style.color = "blue";
             }
         }
-    }
-    if (buttonAttribute === "button-4") {
+    } else if (buttonAttribute === "button-4") {
         const listItems = document.querySelectorAll(`li`)
         listItems.forEach((listItem, index) => {
             if (index % 2 !== 0) {
                 listItem.style.color = "grey";
             }
         })
-    }
-    if (buttonAttribute === "button-5") {
+    } else if (buttonAttribute === "button-5") {
         const subParagraphs = document.querySelectorAll(`.sub-paragraph`);
         for (let word of subParagraphs) {
             if (word.firstChild) {
