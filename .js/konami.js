@@ -1,17 +1,20 @@
-const konamiArr = [`ArrowUp`, `ArrowUp`, `ArrowDown`, `ArrowDown`, 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a', `Enter`]
-let i = 0;
-
-const keyupEvent = (e) => {
-    let keyPressed = e.key;
-    if (konamiArr.indexOf(keyPressed) < 0 || keyPressed !== konamiArr[i]) {
-        return i;
-    } else {
-        i++;
+//IIFE
+(() => {
+    const konamiArr = [`ArrowUp`, `ArrowUp`, `ArrowDown`, `ArrowDown`, 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a', `Enter`]
+    let i = 0;
+    let lives = 3;
+    let newLives = lives + 27;
+    const keyupEvent = (e) => {
+        if (konamiArr.indexOf(e.key) < 0 || e.key !== konamiArr[i]) {
+            return i;
+        } else {
+            i++;
+        }
+        if (konamiArr.length === i) {
+            document.querySelector('#life-counter').innerHTML = newLives;
+            const removeAnimation = document.querySelector(`#pAnimation`);
+            removeAnimation.classList.remove(`make-it-bounce`)
+        }
     }
-    if (konamiArr.length === i) {
-        console.log(`You now have 30 lives!`)
-    }
-}
-
-
-document.addEventListener("keyup", keyupEvent)
+    document.addEventListener("keyup", keyupEvent)
+})();

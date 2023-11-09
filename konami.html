@@ -1,11 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+<link rel="stylesheet" href="./css/konami.css">
 <head>
     <title>Konami Code</title>
 </head>
 <body>
-<h1>Konami Code</h1>
-
+<div class="page-wrapper">
+    <div class="header container-fluid d-flex flex-column">
+        <div class="row justify-content-between">
+            <div class="col flex-grow-0 flex-shrink-1 text-nowrap">
+                <h1>Konami Code</h1>
+            </div>
+            <div class="col flex-grow-0 flex-shrink-1 text-nowrap">
+                <h2>Lives: <span id="life-counter">3</span></h2>
+            </div>
+        </div>
+    </div>
+    <div class="main container flex-grow-1">
+        <div class="row">
+            <div class="col">
+                <p id="pAnimation" class="make-it-bounce">Enter the secret Japanese code to increase your lives
+                    10-fold</p>
+            </div>
+        </div>
+    </div>
+</div>
 <script src=".js/konami.js"></script>
 </body>
 </html>
