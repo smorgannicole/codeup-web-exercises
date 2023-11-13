@@ -1,0 +1,11 @@
+.yellow-active {
+    background-color: yellow;
+}
+
+.bold-font {
+    font-weight: bold;
+}
+
+.blue-font {
+    font: blue;
+}
