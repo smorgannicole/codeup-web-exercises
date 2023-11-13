@@ -18,7 +18,7 @@
             liChild.lastElementChild.classList.add(`yellow-active`)
         }
     })
-    
+
     const allH3s = document.querySelectorAll(`h3`)
     for (let singleH3 of allH3s) {
         singleH3.addEventListener(`click`, e => {
@@ -37,5 +37,20 @@
             }
         })
     }
+    const leftButton = document.querySelector(`.left-btn`)
+    const leftImage = document.querySelector(`.left-img`)
+    const leftImageSrc = leftImage.getAttribute(`src`)
+    const middleImage = document.querySelector(`.middle-img`)
+    const middleImageSrc = middleImage.getAttribute(`src`)
+    const rightImage = document.querySelector(`.right-img`)
+    const rightImageSrc = rightImage.getAttribute(`src`)
+    const leftOrRight = [`./img/cliff-natl-park.jpeg`, `./img/moose-natl-park.jpeg`]
+    const randomNumber = Math.floor((leftOrRight.length - 1) * Math.random());
+    leftButton.addEventListener(`click`, e => {
 
+        leftImage.setAttribute(`src`, `./img/horseshoe-natl-park.jpeg`)
+        middleImage.setAttribute(`src`, `./img/cliff-natl-park.jpeg`)
+
+    })
+    // middleImage.setAttribute(`src`, leftOrRight[randomNumber])
 })();
