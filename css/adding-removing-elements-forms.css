@@ -1,0 +1,13 @@
+@import url("../css/bootstrap.min.css") layer(framework);
+
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+}
+
+.dependent {
+    background-color: #eee;
+    padding: 20px;
+    border-radius: 8px;
+}

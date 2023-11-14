@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adding & Removing Elements</title>
+    <link rel="stylesheet" href="./css/adding-removing-elements-forms.css">
+</head>
+
+<body>
+<div class="page-wrapper justify-content-center py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-12 d-flex flex-column">
+                <form action="https://request-inspector.glitch.me/" method="POST">
+                    <div class="row row-gap-3">
+                        <div class="col-6">
+                            <label for="firstName" class="form-label">First Name</label>
+                            <input name="firstName" type="text" class="form-control" id="firstName" required>
+                        </div>
+                        <div class="col-6">
+                            <label for="lastName" class="form-label">Last Name</label>
+                            <input name="lastName" type="text" class="form-control" id="lastName" required>
+                        </div>
+                        <div class="col-12">
+                            <label for="email" class="form-label">Email</label>
+                            <input name="email" type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="col-12 d-flex flex-column row-gap-2 my-3" id="dependents">
+                            <!-- START DEPENDENT -->
+                            <!-- <div class="row row-gap-3 dependent">
+                                <div class="col-6">
+                                    <label for="dependents[0][firstName]" class="form-label">First Name</label>
+                                    <input type="text" class="form-control" name="dependents[0][firstName]">
+                                </div>
+                                <div class="col-6">
+                                    <label for="dependents[0][lastName]" class="form-label">Last Name</label>
+                                    <input type="text" class="form-control" name="dependents[0][lastName]">
+                                </div>
+                                <div class="col-12">
+                                    <label for="dependents[0][relationship]" class="form-label">Relationship</label>
+                                    <select name="dependents[0][relationship]" class="form-select"
+                                        id="dependents[0][relationship]">
+                                        <option value="spouse">Spouse</option>
+                                        <option value="child">Child</option>
+                                        <option value="parent">Parent</option>
+                                        <option value="grandparent">Grandparent</option>
+                                        <option value="grandchild">Grandchild</option>
+                                        <option value="sibling">Sibling</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-danger removeDependent">Remove Dependent</button>
+                                </div>
+                            </div> -->
+                            <!-- END DEPENDENT -->
+                            <button class="btn btn-outline-primary" id="addDependent">Add Dependent</button>
+                        </div>
+                        <div class="col-12">
+                            <button class="btn btn-success">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="./js/adding-removing-elements-forms.js"></script>
+</body>
+
+</html>
