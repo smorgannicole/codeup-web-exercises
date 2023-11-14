@@ -1,98 +1,120 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Parks</title>
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/parks.css">
-    <title>Parks</title>
-
 </head>
+
 <body>
+<div class="page-wrapper">
 
-<h1>National Parks FAQ</h1>
-
-<dl>
-    <dt>How many people visit the national parks?</dt>
-    <dd>Total recreation visitors to the national parks in 2018: 318,211,833.</dd>
-
-    <dt>How old is the National Park System?</dt>
-    <dd>The National Park Service was created by an act signed by President Woodrow Wilson on August 25, 1916.</dd>
-
-    <dt>How many employees are in the National Park Service?</dt>
-    <dd>Permanent, temporary, and seasonal employees: More than 20,000</dd>
-
-    <dt>What is the origin of the National Park Service arrowhead?</dt>
-    <dd>The arrowhead was authorized as the official National Park Service emblem by the Secretary of the Interior on
-        July 20, 1951.
-    </dd>
-
-    <dt>How many areas are in the National Park System?</dt>
-    <dd>The system includes 419 areas covering more than 85 million acres in every state, the District of Columbia,
-        American Samoa, Guam, Puerto Rico, and the Virgin Islands.
-    </dd>
-
-    <dt>What is the largest national park site?</dt>
-    <dd>Wrangell-St. Elias National Park and Preserve, AK, at 13.2 million acres.</dd>
-
-    <dt>What is the National Park Service budget?</dt>
-    <dd>Fiscal Year (FY) 2014 Enacted: $2.98 billion.</dd>
-
-    <dt>Can I bring my pet to a national park?</dt>
-    <dd>Some national parks welcome pets—in developed areas, on many trails and campgrounds, and in some lodging
-        facilities.
-    </dd>
-
-    <dt>How do I apply for a job with the National Park Service?</dt>
-    <dd>National Park Service jobs, including both permanent and seasonal positions, are listed on USAJOBs.</dd>
-
-    <dt>What do I need to know about driving off road in national parks?</dt>
-    <dd>Before you head out, check with the national parks that you intend to visit. In many national parks, off-road
-        driving is illegal. Where off-road driving is allowed, the National Park Service regulates it.
-    </dd>
-</dl>
-
-<h1>Parks List</h1>
-<div id="national-parks-div">
-    <h3 id="national-park1-heading">Park 1</h3>
-    <ul id="national-park1">
-        <li>Fact1.1</li>
-        <li>Fact2.1</li>
-        <li>Fact 3.1</li>
-        <li>Fact4.1</li>
-    </ul>
-    <h3 id="national-park2-heading">Park 2</h3>
-    <ul id="national-park2">
-        <li>Fact1.2</li>
-        <li>Fact2.2</li>
-        <li>Fact 3.2</li>
-        <li>Fact4.2</li>
-    </ul>
-    <h3 id="national-park3-heading">Park 3</h3>
-    <ul id="national-park3">
-        <li>Fact1.3</li>
-        <li>Fact2.3</li>
-        <li>Fact 3.3</li>
-        <li>Fact4.3</li>
-    </ul>
-</div>
-<button id="yellow-btn" class="btn btn-primary">Yellow</button>
-<main class="container">
-    <div class="row">
-        <div class="col">
-            <img class="left-img" src="./img/cliff-natl-park.jpeg" alt="cliff">
-            <button class="left-btn">Swap with Center</button>
+    <header class="container d-flex justify-content-center mb-5">
+        <div class="row">
+            <div class="col-12 d-flex">
+                <h1>National Parks FAQ</h1>
+            </div>
         </div>
-        <div class="col">
-            <img class="middle-img" src="./img/horseshoe-natl-park.jpeg" alt="horseshoe">
-            <button class="middle-btn">Swap with L or R</button>
-        </div>
-        <div class="col">
-            <img class="right-img" src="./img/moose-natl-park.jpeg" alt="moose">
-            <button class="right-btn">Swap with Center</button>
+    </header>
+
+    <div class="container" data-yellowstoneNP>
+        <div class="row">
+            <div class="col-12">
+                <div data-nationalParks>
+                    <h3 data-park>Yellow Stone National Park</h3>
+                    <ul data-infoList>
+                        <li data-funFact class="funFact">Yellowstone National Park is a nearly 3,500-sq.-mile
+                            wilderness recreation area atop a volcanic hot spot.
+                        </li>
+                        <li data-funFact class="funFact">Mostly in Wyoming, the park spreads into parts of Montana
+                            and Idaho too.
+                        </li>
+                        <li data-funFact class="funFact">Yellowstone features dramatic canyons, alpine rivers, lush
+                            forests, hot springs and gushing geysers, including its most famous, Old Faithful.
+                        </li>
+                        <li data-funFact class="funFact">It's also home to hundreds of animal species, including
+                            bears, wolves, bison, elk and antelope.
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
-</main>
+
+    <div class="container" data-park="shenanNP">
+        <div class="row">
+            <div class="col-12">
+                <div data-nationalParks>
+                    <h3 data-park>Shenandoah National Park</h3>
+                    <ul data-infoList>
+                        <li data-funFact class="funFact">Shenandoah National Park extends along the Blue Ridge
+                            Mountains in the U.S. state of Virginia.
+                        </li>
+                        <li data-funFact class="funFact">The Skyline Drive runs its length, and a vast network of
+                            trails includes a section of the long-distance Appalachian Trail.
+                        </li>
+                        <li data-funFact class="funFact">Mostly forested, the park features wetlands, waterfalls and
+                            rocky peaks like Hawksbill and Old Rag mountains.
+                        </li>
+                        <li data-funFact class="funFact">Shenandoah is home to many bird species, plus deer,
+                            squirrels and the elusive black bear.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" data-park="bigBendNP">
+        <div class="row">
+            <div class="col-12">
+                <div>
+                    <h3 data-park>Big Bend National Park</h3>
+                    <ul class="d-flex gap-3 flex-column">
+                        <li data-funFact class="funFact">Big Bend National Park is in southwest Texas and includes
+                            the entire Chisos mountain range and a large swath of the Chihuahuan Desert.
+                        </li>
+                        <li data-funFact class="funFact">The Ross Maxwell Scenic Drive leads to the ruins of Sam
+                            Nail Ranch, now home to desert wildlife.
+                        </li>
+                        <li data-funFact class="funFact">The Santa Elena Canyon, carved by the Rio Grande, features
+                            steep limestone cliffs.
+                        </li>
+                        <li data-funFact class="funFact">Langford Hot Springs, near the Mexican border, has
+                            pictographs and the foundations of an old bathhouse.
+                        </li>
+                    </ul>
+                    <div class="d-flex">
+                        <button class="btn btn-primary text-nowrap" data-last="bigBendNP">Highlight Last
+                            Fact
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                <img src="./img/horseshoe-natl-park.jpeg" class="picture-frame">
+            </div>
+            <div class="col-4">
+                <img src="./img/moose-natl-park.jpeg" class="picture-frame">
+            </div>
+            <div class="col-4">
+                <img src="./img/cliff-natl-park.jpeg" class="picture-frame">
+            </div>
+        </div>
+    </div>
+</div>
 
 <script src="./js/parks.js"></script>
 </body>
+
 </html>

@@ -10,47 +10,66 @@
  * - firstElementChild: crawl down the DOM tree, returns first child element
  * - lastElementChild: crawl down the DOM tree, returns last child element
  */
+const handleHighlight = (e) => {
+    const lastListItems = document.querySelectorAll("ul li:last-child");
+    for (let lastListItem of lastListItems) {
+        lastListItem.classList.toggle("highlight");
+    }
+};
+
+const handleH3Click = (e) => {
+    const list = e.target.parentElement.querySelector("ul");
+    list.classList.toggle("bold");
+};
+
+const handleLIClick = (e) => {
+    const firstListItem = e.target.parentElement.firstElementChild;
+    firstListItem.classList.toggle("blue");
+};
+
+const handlePicSwitch = (e, pictures) => {
+    const leftImg = pictures[0];
+    const centerImg = pictures[1];
+    const rightImg = pictures[2];
+
+    const leftImgSrc = leftImg.getAttribute("src");
+    const centerImgSrc = centerImg.getAttribute("src");
+    const rightImgSrc = rightImg.getAttribute("src");
+
+    if (e.target === leftImg) {
+        leftImg.setAttribute("src", centerImgSrc);
+        centerImg.setAttribute("src", leftImgSrc);
+    }
+    if (e.target === centerImg) {
+        const switchWith = [leftImg, rightImg][Math.floor(Math.random() * 2)];
+        centerImg.setAttribute("src", switchWith.getAttribute("src"));
+        switchWith.setAttribute("src", centerImgSrc);
+    }
+    if (e.target === rightImg) {
+        rightImg.setAttribute("src", centerImgSrc);
+        centerImg.setAttribute("src", rightImgSrc);
+    }
+};
+
+// MAIN
 (() => {
-    const yellowBtn = document.querySelector(`#yellow-btn`)
-    const ulParents = document.querySelectorAll(`ul`)
-    yellowBtn.addEventListener(`click`, e => {
-        for (let liChild of ulParents) {
-            liChild.lastElementChild.classList.add(`yellow-active`)
-        }
-    })
+    const highlightBtn = document.querySelector("button[data-last]");
+    highlightBtn.addEventListener("click", handleHighlight);
 
-    const allH3s = document.querySelectorAll(`h3`)
-    for (let singleH3 of allH3s) {
-        singleH3.addEventListener(`click`, e => {
-            for (let singleH3 of allH3s) {
-                singleH3.nextElementSibling.classList.add(`bold-font`)
-            }
-        })
+    const h3s = document.querySelectorAll("h3");
+    for (let h3 of h3s) {
+        h3.addEventListener("click", handleH3Click);
     }
 
-    const allLis = document.querySelectorAll(`li`)
-    const allUls = document.querySelectorAll(`ul`)
-    for (let singleLi of allLis) {
-        singleLi.addEventListener(`click`, e => {
-            for (let singleUl of allUls) {
-                singleUl.firstElementChild.style.color = `blue`
-            }
-        })
+    const listItems = document.querySelectorAll("li");
+    for (let listItem of listItems) {
+        listItem.addEventListener("click", handleLIClick);
     }
-    const leftButton = document.querySelector(`.left-btn`)
-    const leftImage = document.querySelector(`.left-img`)
-    const leftImageSrc = leftImage.getAttribute(`src`)
-    const middleImage = document.querySelector(`.middle-img`)
-    const middleImageSrc = middleImage.getAttribute(`src`)
-    const rightImage = document.querySelector(`.right-img`)
-    const rightImageSrc = rightImage.getAttribute(`src`)
-    const leftOrRight = [`./img/cliff-natl-park.jpeg`, `./img/moose-natl-park.jpeg`]
-    const randomNumber = Math.floor((leftOrRight.length - 1) * Math.random());
-    leftButton.addEventListener(`click`, e => {
 
-        leftImage.setAttribute(`src`, `./img/horseshoe-natl-park.jpeg`)
-        middleImage.setAttribute(`src`, `./img/cliff-natl-park.jpeg`)
-
-    })
-    // middleImage.setAttribute(`src`, leftOrRight[randomNumber])
+    const pictures = document.querySelectorAll("img.picture-frame");
+    for (let pic of pictures) {
+        pic.addEventListener("click", (e) => {
+            handlePicSwitch(e, pictures);
+        });
+    }
 })();
