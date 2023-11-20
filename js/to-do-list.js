@@ -3,7 +3,7 @@ const createToDoItem = () => {
     let toDoInputValue = toDoInput.value;
     const toDoItem = document.createElement(`li`);
     toDoItem.classList.add(`to-do-item`, `list-group-item`, `d-flex`, `justify-content-between`, `align-items-center`);
-    toDoItem.innerHTML = ` 
+    toDoItem.innerHTML = `
             <p class="m-0">${toDoInputValue}</p>
             <button class="btn btn-danger" data-done>Done</button>
        `;
