@@ -1,3 +1,3 @@
 export const keys = {
-    githib: "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",
+    github: `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`,
 };
