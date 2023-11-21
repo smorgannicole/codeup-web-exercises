@@ -8,10 +8,12 @@ const getPokemonAll = async (offset = 0, limit = 10) => {
             "Content-Type": "application/json",
         },
     };
-    return fetch(url, options)
-        .then(response => response.json())
-        .catch((error) => console.log(error));
-}
+    const response = await fetch(url, options);
+    let list = await response.json();
+    const pokemon = await Promise.all(list.results.map((item) => getPokemon(item.name)));
+    list.results = pokemon;
+    return list;
+};
 
 (() => {
     // getPokemon("munkidori").then((pokemon) => {
