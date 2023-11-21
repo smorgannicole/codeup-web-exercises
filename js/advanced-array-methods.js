@@ -1,4 +1,4 @@
-import {NETFLIX_TITLES} from "../data/netflix-titles.js";
+import {NETFLIX_TITLES} from "../data/js/netflix-titles.js";
 
 (() => {
     // console.log(NETFLIX_TITLES);
