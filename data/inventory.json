@@ -33,5 +33,25 @@
       "tool"
     ],
     "price": 10
+  },
+  {
+    "title": "Leaf Blowers",
+    "quantity": 20,
+    "categories": [
+      "tool",
+      "gas",
+      "outdoor"
+    ],
+    "price": 80
+  },
+  {
+    "title": "Jack Hammers",
+    "quantity": 10,
+    "categories": [
+      "tool",
+      "powered",
+      "outdoor"
+    ],
+    "price": 400
   }
 ]
