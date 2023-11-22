@@ -1,4 +1,5 @@
 import {getTools} from "./inventory.api.js";
+import {formatMoney} from "../../js/utils.js";
 
 const createToolElement = (tool) => {
     const toolElement = document.createElement(`div`);
@@ -8,11 +9,9 @@ const createToolElement = (tool) => {
             <p>Type: ${tool.title}</p>
             <p>Inventory: ${tool.quantity}</p>
             <p>Category: ${tool.categories.join(", ")}</p>
-            <p>Price: ${tool.price}</p>
+            <p>Price: ${formatMoney(tool.price)}</p>
         </div>
     `;
-    // add any event listeners to the element here
-
     return toolElement;
 }
 const updateToolElements = (tools) => {
@@ -30,10 +29,25 @@ const updateToolElements = (tools) => {
     }
     toolsContainer.appendChild(toolsFragment);
 }
-
+const eventHandler = () => {
+    const tabLinks = document.querySelectorAll('.tabLinks');
+    const tabContents = document.querySelectorAll('.tabContent');
+    for (let tab of tabLinks) {
+        tab.addEventListener('click', e => {
+            const tabId = tab.getAttribute('data-tab');
+            for (let content of tabContents) {
+                content.classList.remove('active');
+            }
+            const selectedTab = document.querySelector(`#${tabId}`);
+            if (selectedTab) {
+                selectedTab.classList.add('active');
+            }
+        });
+    }
+};
 //MAIN
 (async () => {
     const tools = await getTools();
     updateToolElements(tools);
-
+    eventHandler();
 })();

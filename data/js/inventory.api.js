@@ -6,6 +6,6 @@ export const getTools = async () => {
         "Content-Type": "application/json",
     }
     const response = await fetch(url, options)
-    let list = await response.json();
-    return list;
+    return await response.json();
+
 }
