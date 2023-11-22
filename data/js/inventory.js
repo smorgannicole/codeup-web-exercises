@@ -32,6 +32,7 @@ const updateToolElements = (tools) => {
 const eventHandler = () => {
     const tabLinks = document.querySelectorAll('.tabLinks');
     const tabContents = document.querySelectorAll('.tabContent');
+    const h1Text = document.querySelector(`.nameOfSite`);
     for (let tab of tabLinks) {
         tab.addEventListener('click', e => {
             const tabId = tab.getAttribute('data-tab');
@@ -44,6 +45,11 @@ const eventHandler = () => {
             }
         });
     }
+    h1Text.addEventListener(`click`, e => {
+        for (let content of tabContents) {
+            content.classList.remove('active');
+        }
+    })
 };
 //MAIN
 (async () => {
