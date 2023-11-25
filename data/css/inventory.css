@@ -45,26 +45,26 @@ a {
     display: block;
 }
 
-.tabLinks {
+button.tabLinks {
     background-color: transparent;
     padding: 8px 8px;
     border: none;
     color: inherit;
 }
 
-.homeTab {
+button.homeTab {
     display: none;
 }
 
-.tabLinks:hover {
+button.tabLinks:hover {
     color: var(--clr-light-grey);
 }
 
-.nameOfSite:hover {
+h2.nameOfSite:hover {
     color: var(--clr-light-grey);
 }
 
-.mainText {
+h1.mainText {
     margin-top: 150px;
 }
 
@@ -76,28 +76,34 @@ a {
     background-color: var(--clr-nav-blue);
     aspect-ratio: 2/3;
     max-height: 180px;
+    overflow: hidden;
+    transition: transform 0.2s ease;
 }
 
-.hNavCont {
+.hNavCol:hover {
+    transform: scale(1.05); /* Increase the scale on hover */
+}
+
+h3.hNavCont {
     margin: 10px 10px;
     font-weight: normal;
     font-size: 20px;
     letter-spacing: 2px;
 }
 
-.leafBlowerImg {
-    margin-top: -30px;
-    margin-left: -50px;
+img.leafBlowerImg {
+    margin-top: -35px;
+    margin-left: -55px;
 }
 
-.jackHammerImg {
+img.jackHammerImg {
     height: 190%;
     margin-top: -85px;
-    margin-left: -130px;
+    margin-left: -135px;
 }
 
-.chainSawImg {
+img.chainSawImg {
     height: 120%;
-    margin-top: -40px;
-    margin-left: -50px;
+    margin-top: -35px;
+    margin-left: -55px;
 }
