@@ -6,26 +6,40 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/inventory.css">
-    <title>Morgan's Ajax Store</title>
+    <title>Ajax</title>
 </head>
 <body>
 <div class="page-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col mt-5">
+                <h2 class="dynamicHeading"
+                    style="font-size: 15px; color: #fff; font-weight: normal; letter-spacing: 2px">
+                    01. HOMEPAGE</h2>
+            </div>
+        </div>
+    </div>
     <div class="container bg">
         <header class="container">
             <div class="row">
-                <div class="col">
+                <div class="col d-flex">
                     <a href="#">
-                        <h1 class="nameOfSite">Morgan's Tool Shack</h1>
+                        <h1 class="nameOfSite mt-3 mx-5"
+                            style="font-size: 30px; font-weight: normal; letter-spacing: 2px">AJAX</h1>
                     </a>
+                </div>
+                <div class="col d-flex justify-content-end gap-1 px-5">
+                    <button class="tabLinks" data-tab="tab1">About</button>
+                    <button class="tabLinks" data-tab="tab2">Services</button>
+                    <button class="tabLinks" data-tab="tab3">Tools</button>
+                    <button class="tabLinks" data-tab="tab4">Contact</button>
                 </div>
             </div>
         </header>
         <nav class="container">
             <div class="row">
                 <div class="col">
-                    <button class="tabLinks" data-tab="tab1">Tab 1</button>
-                    <button class="tabLinks" data-tab="tab2">Tab 2</button>
-                    <button class="tabLinks" data-tab="tab3">Tab 3</button>
+
                 </div>
             </div>
         </nav>
@@ -45,6 +59,10 @@
                     <div class="tabContent" id="tab3">
                         <h3>Tab 3 Content</h3>
                         <p>This is the content for Tab 3.</p>
+                    </div>
+                    <div class="tabContent" id="tab4">
+                        <h3>Tab 4 Content</h3>
+                        <p>This is the content for Tab 4.</p>
                     </div>
                 </div>
             </div>

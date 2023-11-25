@@ -32,24 +32,32 @@ const updateToolElements = (tools) => {
 const eventHandler = () => {
     const tabLinks = document.querySelectorAll('.tabLinks');
     const tabContents = document.querySelectorAll('.tabContent');
-    const h1Text = document.querySelector(`.nameOfSite`);
-    for (let tab of tabLinks) {
-        tab.addEventListener('click', e => {
-            const tabId = tab.getAttribute('data-tab');
+    const h2Text = document.querySelector('.dynamicHeading');
+    const h1Text = document.querySelector('.nameOfSite');
+    const headings = [
+        "02. ABOUT",
+        "03. SERVICES",
+        "04. TOOLS",
+        "05. CONTACT"
+    ];
+
+    for (let i = 0; i < tabLinks.length; i++) {
+        tabLinks[i].addEventListener('click', e => {
+            const tabId = tabLinks[i].getAttribute('data-tab');
             for (let content of tabContents) {
                 content.classList.remove('active');
             }
             const selectedTab = document.querySelector(`#${tabId}`);
             if (selectedTab) {
                 selectedTab.classList.add('active');
+                h2Text.innerHTML = headings[i];
             }
         });
     }
-    h1Text.addEventListener(`click`, e => {
-        for (let content of tabContents) {
-            content.classList.remove('active');
-        }
-    })
+
+    h1Text.addEventListener('click', e => {
+        window.location.reload();
+    });
 };
 //MAIN
 (async () => {
