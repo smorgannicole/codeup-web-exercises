@@ -84,3 +84,20 @@ a {
     font-size: 20px;
     letter-spacing: 2px;
 }
+
+.leafBlowerImg {
+    margin-top: -30px;
+    margin-left: -50px;
+}
+
+.jackHammerImg {
+    height: 190%;
+    margin-top: -85px;
+    margin-left: -130px;
+}
+
+.chainSawImg {
+    height: 120%;
+    margin-top: -40px;
+    margin-left: -50px;
+}
