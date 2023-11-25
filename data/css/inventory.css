@@ -4,6 +4,7 @@
 :root {
     --clr-light-navy: #1D2131;
     --clr-dark-navy: #1E2232;
+    --clr-nav-blue: #2b3d54;
     --clr-light-grey: #dcdfe0;
     --clr-dark-grey: #515560;
 }
@@ -22,7 +23,7 @@ body {
 
 .bg {
     position: relative;
-    height: 90vh;
+    height: 150vh;
     width: 70%;
     margin: 20vh auto;
     background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) -150%, var(--clr-light-navy) 100%), url('../../img/pexels-markus-spiske-14384695.jpg');
@@ -67,6 +68,19 @@ a {
     margin-top: 150px;
 }
 
-.subHead {
-    margin-top: -10px;
+.heroNav {
+    margin-top: 150px;
+}
+
+.hNavCol {
+    background-color: var(--clr-nav-blue);
+    aspect-ratio: 2/3;
+    max-height: 180px;
+}
+
+.hNavCont {
+    margin: 10px 10px;
+    font-weight: normal;
+    font-size: 20px;
+    letter-spacing: 2px;
 }
