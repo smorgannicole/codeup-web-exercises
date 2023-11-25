@@ -4,11 +4,12 @@
 :root {
     --clr-light-navy: #1D2131;
     --clr-dark-navy: #1E2232;
-    --clr-light-grey: #E9EDEE;
+    --clr-light-grey: #dcdfe0;
+    --clr-dark-grey: #515560;
 }
 
 body {
-    color: #000;
+    color: #fff;
     font-family: 'Barlow', sans-serif;
 }
 
@@ -24,7 +25,7 @@ body {
     height: 90vh;
     width: 70%;
     margin: 20vh auto;
-    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) -50%, var(--clr-light-navy) 100%), url('../../img/pexels-markus-spiske-14384695.jpg');
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) -150%, var(--clr-light-navy) 100%), url('../../img/pexels-markus-spiske-14384695.jpg');
     background-size: cover;
     background-position: center;
     box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.5);
