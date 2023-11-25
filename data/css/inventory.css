@@ -51,6 +51,10 @@ a {
     color: inherit;
 }
 
+.homeTab {
+    display: none;
+}
+
 .tabLinks:hover {
     color: var(--clr-light-grey);
 }
@@ -59,3 +63,10 @@ a {
     color: var(--clr-light-grey);
 }
 
+.mainText {
+    margin-top: 150px;
+}
+
+.subHead {
+    margin-top: -10px;
+}

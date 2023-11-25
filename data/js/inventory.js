@@ -50,7 +50,7 @@ const eventHandler = () => {
             const selectedTab = document.querySelector(`#${tabId}`);
             if (selectedTab) {
                 selectedTab.classList.add('active');
-                h2Text.innerHTML = headings[i];
+                h2Text.innerHTML = headings[i - 1];
             }
         });
     }

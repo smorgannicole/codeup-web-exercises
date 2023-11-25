@@ -24,11 +24,12 @@
             <div class="row mt-2">
                 <div class="col d-flex">
                     <a href="#">
-                        <h1 class="nameOfSite mt-3 mx-5"
-                            style="font-size: 30px; font-weight: normal; letter-spacing: 2px">AJAX</h1>
+                        <h2 class="nameOfSite mt-3 mx-5"
+                            style="font-size: 30px; font-weight: normal; letter-spacing: 2px">AJAX</h2>
                     </a>
                 </div>
                 <div class="col d-flex justify-content-end gap-1 px-5">
+                    <button class="tabLinks homeTab" data-tab="tabHome">Home</button>
                     <button class="tabLinks" data-tab="tab1">About</button>
                     <button class="tabLinks" data-tab="tab2">Services</button>
                     <button class="tabLinks" data-tab="tab3">Tools</button>
@@ -46,6 +47,23 @@
         <main class="container">
             <div class="row">
                 <div class="col">
+                    <div class="tabContent active" id="homeTab">
+                        <main class="container">
+                            <div class="row flex-column">
+                                <div class="col">
+                                    <h1 class="text-center mainText"
+                                        style="font-weight: lighter; font-size: 50px; letter-spacing: 2px; line-height: 1.5">
+                                        YOUR
+                                        VISION
+                                        <br> OUR CRAFTED
+                                        TOOLS</h1>
+                                </div>
+                                <div class="col text-center subHead" style="font-weight: normal; letter-spacing: 1px">
+                                    <p>Ajax - Providing tools that are designed to support every project</p>
+                                </div>
+                            </div>
+                        </main>
+                    </div>
                     <div class="tabContent" id="tab1">
                         <h3>Tab 1 Content</h3>
                         <p>This is the content for Tab 1.</p>
