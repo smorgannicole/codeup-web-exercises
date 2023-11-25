@@ -5,7 +5,6 @@
     --clr-light-navy: #1D2131;
     --clr-dark-navy: #1E2232;
     --clr-light-grey: #E9EDEE;
-    --clr-washed-orng: #D79A7E;
 }
 
 body {
@@ -52,10 +51,10 @@ a {
 }
 
 .tabLinks:hover {
-    color: var(--clr-washed-orng);
+    color: var(--clr-light-grey);
 }
 
 .nameOfSite:hover {
-    color: var(--clr-washed-orng);
+    color: var(--clr-light-grey);
 }
 
