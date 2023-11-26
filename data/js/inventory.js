@@ -35,6 +35,7 @@ const eventHandler = () => {
     const h2Text = document.querySelector('.dynamicHeading');
     const h1Text = document.querySelector('.nameOfSite');
     const hNavCols = document.querySelectorAll('.hNavCol');
+    const contactButtons = document.querySelector(`.contactButtons`);
     const headings = [
         "02. ABOUT",
         "03. SERVICES",
@@ -77,6 +78,18 @@ const eventHandler = () => {
             }
         });
     }
+    contactButtons.addEventListener(`click`, e => {
+        for (let content of tabContents) {
+            content.classList.remove('active');
+        }
+        const contactTab = document.querySelector(`#tab4`);
+        contactTab.classList.add('active');
+        h2Text.innerHTML = headings[3];
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
 
     h1Text.addEventListener('click', e => {
         window.location.reload();
