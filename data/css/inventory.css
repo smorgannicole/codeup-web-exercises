@@ -81,7 +81,8 @@ h1.mainText {
 }
 
 .hNavCol:hover {
-    transform: scale(1.05); /* Increase the scale on hover */
+    transform: scale(1.05);
+    cursor: pointer;
 }
 
 h3.hNavCont {

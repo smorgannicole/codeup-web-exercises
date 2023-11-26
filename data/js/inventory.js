@@ -34,6 +34,7 @@ const eventHandler = () => {
     const tabContents = document.querySelectorAll('.tabContent');
     const h2Text = document.querySelector('.dynamicHeading');
     const h1Text = document.querySelector('.nameOfSite');
+    const hNavCols = document.querySelectorAll('.hNavCol');
     const headings = [
         "02. ABOUT",
         "03. SERVICES",
@@ -51,6 +52,28 @@ const eventHandler = () => {
             if (selectedTab) {
                 selectedTab.classList.add('active');
                 h2Text.innerHTML = headings[i - 1];
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    }
+
+    for (let i = 0; i < hNavCols.length; i++) {
+        hNavCols[i].addEventListener('click', e => {
+            const tabId = tabLinks[i + 1].getAttribute('data-tab');
+            for (let content of tabContents) {
+                content.classList.remove('active');
+            }
+            const selectedTab = document.querySelector(`#${tabId}`);
+            if (selectedTab) {
+                selectedTab.classList.add('active');
+                h2Text.innerHTML = headings[i];
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
             }
         });
     }
