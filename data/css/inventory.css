@@ -24,9 +24,9 @@ body {
 
 .bg {
     position: relative;
-    height: 190vh;
+    height: 250dvh;
     width: 70%;
-    margin: 20vh auto;
+    margin: 18vh auto;
     background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) -150%, var(--clr-light-navy) 100%), url('../../img/pexels-markus-spiske-14384695.jpg');
     background-size: cover;
     background-position: center;
@@ -165,9 +165,6 @@ button.smContactBtn {
 
 section.contact {
     border: var(--clr-nav-blue) 5px solid;
-    margin-top: 150px;
-    margin-left: 70px;
-    margin-right: 70px;
-    max-width: 85%;
+    margin-top: 210px;
     padding: 30px 30px;
 }
