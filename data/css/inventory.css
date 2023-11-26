@@ -86,7 +86,6 @@ h1.mainText {
 }
 
 h3.hNavCont {
-    margin: 10px 10px;
     font-weight: normal;
     font-size: 20px;
     letter-spacing: 2px;
@@ -107,4 +106,9 @@ img.chainSawImg {
     height: 120%;
     margin-top: -35px;
     margin-left: -55px;
+}
+
+.subPTxt {
+    font-size: 14px;
+    font-weight: normal;
 }
