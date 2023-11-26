@@ -6,7 +6,7 @@
     --clr-dark-navy: #1E2232;
     --clr-nav-blue: #2b3d54;
     --clr-light-grey: #dcdfe0;
-    --clr-dark-grey: #515560;
+    --clr-dark-grey: #787d8c;
     --clr-warm-yllw: #F6D54E;
 }
 
@@ -167,4 +167,10 @@ section.contact {
     border: var(--clr-nav-blue) 5px solid;
     margin-top: 210px;
     padding: 30px 30px;
+}
+
+ul.relatedLinks {
+    color: var(--clr-dark-grey);
+    list-style: none;
+    padding-left: 0;
 }
