@@ -18,19 +18,22 @@ body {
 .page-wrapper {
     display: flex;
     flex-direction: column;
-    min-height: 100dvh;
-    background: linear-gradient(to bottom, var(--clr-dark-navy) 50%, var(--clr-light-grey) 50%);
+    min-height: 100vh;
+    background: linear-gradient(to bottom, rgba(29, 33, 49, 0.95) 50%, var(--clr-light-grey) 50%),
+    url('../../img/pexels-markus-spiske-bg3.jpg') no-repeat center bottom;
+    background-size: cover;
 }
 
 .bg {
     position: relative;
-    height: 250dvh;
+    height: 230dvh;
     width: 70%;
     margin: 18vh auto;
     background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) -150%, var(--clr-light-navy) 100%), url('../../img/pexels-markus-spiske-14384695.jpg');
     background-size: cover;
     background-position: center;
     box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.5);
+    padding: 0 100px;
 }
 
 a {
@@ -173,4 +176,16 @@ ul.relatedLinks {
     color: var(--clr-dark-grey);
     list-style: none;
     padding-left: 0;
+}
+
+ul.relatedLinks li {
+    margin-bottom: 15px;
+}
+
+button.submitBtn {
+    color: inherit;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--clr-warm-yllw);
+    border-color: transparent;
 }
