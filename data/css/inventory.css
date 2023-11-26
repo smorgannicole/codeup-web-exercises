@@ -26,14 +26,16 @@ body {
 
 .bg {
     position: relative;
-    height: 230dvh;
+    height: 100%;
     width: 70%;
     margin: 18vh auto;
     background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) -150%, var(--clr-light-navy) 100%), url('../../img/pexels-markus-spiske-14384695.jpg');
     background-size: cover;
     background-position: center;
     box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.5);
-    padding: 0 100px;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-bottom: 25px;
 }
 
 a {
@@ -168,7 +170,7 @@ button.smContactBtn {
 
 section.contact {
     border: var(--clr-nav-blue) 5px solid;
-    margin-top: 210px;
+    margin-top: 150px;
     padding: 30px 30px;
 }
 
@@ -188,4 +190,8 @@ button.submitBtn {
     justify-content: center;
     background-color: var(--clr-warm-yllw);
     border-color: transparent;
+}
+
+footer.container {
+    margin-top: 90px;
 }
