@@ -7,7 +7,7 @@
     --clr-nav-blue: #2b3d54;
     --clr-light-grey: #dcdfe0;
     --clr-dark-grey: #515560;
-    --clr-burnt-red: #8B262F;
+    --clr-warm-yllw: #F6D54E;
 }
 
 body {
@@ -118,9 +118,9 @@ p.subPTxt {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--clr-burnt-red);
-    max-height: 19px;
-    max-width: 20px;
+    background-color: var(--clr-warm-yllw);
+    max-height: 25px;
+    max-width: 25px;
 }
 
 img.playBtn {
