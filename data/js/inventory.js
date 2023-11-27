@@ -3,14 +3,13 @@ import {formatMoney} from "../../js/utils.js";
 
 const createToolElement = (tool) => {
     const toolElement = document.createElement(`div`);
-    toolElement.classList.add(`col-3`);
+    toolElement.classList.add(`col-3`, `cardBg`, `d-flex`, `flex-column`, `p-2`);
     toolElement.innerHTML = `
-        <div class="col d-flex flex-column">
-            <p>Type: ${tool.title}</p>
-            <p>Inventory: ${tool.quantity}</p>
-            <p>Category: ${tool.categories.join(", ")}</p>
-            <p>Price: ${formatMoney(tool.price)}</p>
-        </div>
+        <p style="font-size: 18px; letter-spacing: 2px; font-weight: lighter; color: var(--clr-warm-yllw)">${tool.title}</p>
+        <p>Inventory: ${tool.quantity}</p>
+        <p>Category: ${tool.categories.join(", ")}</p>
+        <p>Price: ${formatMoney(tool.price)}</p>
+        <button class="cartBtn">ADD TO CART</button>
     `;
     return toolElement;
 }

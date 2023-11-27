@@ -218,3 +218,23 @@ h3.quote {
 span.quoteMark2 {
     margin-top: -10px;
 }
+
+.cardBg {
+    background-color: var(--clr-nav-blue);
+}
+
+.cartBtn {
+    padding: 10px 20px;
+    background-color: var(--clr-dark-navy);
+    color: inherit;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: normal;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease;
+}
+
+.cartBtn:hover {
+    background-color: var(--clr-nav-blue);
+}
