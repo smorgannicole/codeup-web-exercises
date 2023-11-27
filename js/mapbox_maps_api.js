@@ -35,14 +35,29 @@ const createMarker = (map, coordinates, popupHTML) => {
 
 //MAIN
 (async () => {
-    const threeFavs = ["216 North Street, San Marcos, Tx 78666", "829 N LBJ Dr, San Marcos, TX 78666", "148 S Castell Ave, New Braunfels, TX 78130"];
-    const threeFavDescriptions = ["North Street", "Don Japanese Kitchen", "Krause's Cafe"];
+    const restaurants = [
+        {
+            name: "North Street",
+            address: "216 North Street, San Marcos, Tx 78666",
+            description: "Indian-inspired dishes with Texas flair alongside more traditional Indian classics",
+        },
+        {
+            name: "Don Japanese Kitchen",
+            address: "829 N LBJ Dr, San Marcos, TX 78666",
+            description: "Traditional Japanese rice place with large portions and affordable prices."
+        },
+        {
+            name: "Krause's Kitchen",
+            address: "148 S Castell Ave, New Braunfels, TX 78130",
+            description: "Lively beer garden & taproom with beers, wines & margaritas on tap, plus American & German fare.",
+        },
+    ]
 
     mapboxgl.accessToken = keys.mapbox;
-    const map = createMap("map", await getCoordinates(threeFavs[0]));
+    const map = createMap("map", await getCoordinates(restaurants[0].address));
 
-    for (let i = 0; i < threeFavs.length; i++) {
-        const coordinates = await getCoordinates(threeFavs[i]);
-        createMarker(map, coordinates, threeFavDescriptions[i]);
+    for (let i = 0; i < restaurants.length; i++) {
+        const coordinates = await getCoordinates(restaurants[i].address);
+        createMarker(map, coordinates, restaurants[i].name);
     }
 })();
