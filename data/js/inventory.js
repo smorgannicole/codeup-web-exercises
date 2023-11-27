@@ -3,7 +3,7 @@ import {formatMoney} from "../../js/utils.js";
 
 const createToolElement = (tool) => {
     const toolElement = document.createElement(`div`);
-    toolElement.classList.add(`row`);
+    toolElement.classList.add(`col-3`);
     toolElement.innerHTML = `
         <div class="col d-flex flex-column">
             <p>Type: ${tool.title}</p>

@@ -35,7 +35,7 @@
     "price": 10
   },
   {
-    "title": "Leaf Blowers",
+    "title": "Leaf Blower",
     "quantity": 20,
     "categories": [
       "tool",
@@ -45,7 +45,7 @@
     "price": 80
   },
   {
-    "title": "Jack Hammers",
+    "title": "Jack Hammer",
     "quantity": 10,
     "categories": [
       "tool",
