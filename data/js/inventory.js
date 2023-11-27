@@ -1,15 +1,15 @@
 import {getTools} from "./inventory.api.js";
 import {formatMoney} from "../../js/utils.js";
 
-const createToolElement = (tool) => {
+const createToolElement = (tool, index) => {
     const toolElement = document.createElement(`div`);
     toolElement.classList.add(`col-3`, `cardBg`, `d-flex`, `flex-column`, `p-2`);
     toolElement.innerHTML = `
-        <p style="font-size: 18px; letter-spacing: 2px; font-weight: lighter; color: var(--clr-warm-yllw)">${tool.title}</p>
+        <p class="text-center" style="font-size: 18px; letter-spacing: 2px; font-weight: lighter; color: var(--clr-warm-yllw)">${tool.title}</p>
         <p>Inventory: ${tool.quantity}</p>
         <p>Category: ${tool.categories.join(", ")}</p>
         <p>Price: ${formatMoney(tool.price)}</p>
-        <button class="cartBtn">ADD TO CART</button>
+        <button class="cartBtn" data-cart="${index}">ADD TO CART</button>
     `;
     return toolElement;
 }
@@ -22,10 +22,11 @@ const updateToolElements = (tools) => {
 
     // build a fragment to hold all the tool elements
     const toolsFragment = document.createDocumentFragment();
-    for (let tool of filteredTools) {
-        const toolElement = createToolElement(tool);
+    tools.forEach((tool, index) => {
+        const toolElement = createToolElement(tool, index);
         toolsFragment.appendChild(toolElement);
-    }
+
+    })
     toolsContainer.appendChild(toolsFragment);
 }
 const eventHandler = () => {
@@ -35,6 +36,9 @@ const eventHandler = () => {
     const h1Text = document.querySelector('.nameOfSite');
     const hNavCols = document.querySelectorAll('.hNavCol');
     const contactButtons = document.querySelector(`.contactButtons`);
+    const addToCartBtns = document.querySelector(`.cartBtn`);
+    const shoppingCartBtn = document.querySelector(`.shoppingBtn`);
+    const cart = document.querySelector(`.shoppingCart`);
     const headings = [
         "02. ABOUT",
         "03. SERVICES",
@@ -93,6 +97,32 @@ const eventHandler = () => {
     h1Text.addEventListener('click', e => {
         window.location.reload();
     });
+
+    // const discountSelector = document.querySelector('#discount-selector');
+    // const overlayGrab = document.querySelector('#overlay-grab');
+    //
+    // discountSelector.classList.remove('hide-discount');
+    // discountSelector.classList.add('pop-up');
+    // overlayGrab.classList.add('overlay');
+    //
+    // const closeButton = document.querySelector('#closeButton');
+    // closeButton.addEventListener('click', closePopup);
+    // const emailButton = document.querySelector('#email-btn');
+    // emailButton.addEventListener('click', closePopup);
+
+    shoppingCartBtn.addEventListener(`click`, e => {
+        cart.classList.toggle(`hide-shopping-cart`);
+    })
+
+    for (let i = 0; i < addToCartBtns.length; i++) {
+        addToCartBtns[i].addEventListener('click', e => {
+            const buttonId = addToCartBtns[i].getAttribute('data-add');
+            const clickedAddBtn = document.querySelector(`#${buttonId}`);
+            if (clickedAddBtn) {
+
+            }
+        });
+    }
 };
 //MAIN
 (async () => {

@@ -7,5 +7,4 @@ export const getTools = async () => {
     }
     const response = await fetch(url, options)
     return await response.json();
-
 }

@@ -238,3 +238,26 @@ span.quoteMark2 {
 .cartBtn:hover {
     background-color: var(--clr-nav-blue);
 }
+
+button.shoppingBtn {
+    background-color: transparent;
+    border: none;
+}
+
+.shoppingCart {
+    background-color: #fff;
+    width: 10%;
+    height: 40%;
+}
+
+.overlay {
+    position: fixed;
+    top: 50%;
+    left: 75%;
+    backdrop-filter: blur(5px);
+    z-index: 998;
+}
+
+.hide-shopping-cart {
+    display: none;
+}
