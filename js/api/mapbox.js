@@ -1,7 +1,7 @@
 import {keys} from "../keys.js";
 
 class Mapbox {
-    async getCoordinates(searchText) {
+    static async getCoordinates(searchText) {
         searchText = encodeURIComponent(searchText);
         const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${searchText}.json?access_token=${keys.mapbox}`;
         const options = {
@@ -20,7 +20,7 @@ class Mapbox {
         }
     }
 
-    async createMap(elementId, coordinates, zoom = 9) {
+    static async createMap(elementId, coordinates, zoom = 9) {
         mapboxgl.accessToken = keys.mapbox;
         const map = new mapboxgl.Map({
             container: elementId,
@@ -37,7 +37,7 @@ class Mapbox {
         return map;
     };
 
-    async getAddress(lng, lat) {
+    static async getAddress(lng, lat) {
         if (Array.isArray(lng)) {
             lat = lng[1];
             lng = lng[0];
@@ -59,7 +59,7 @@ class Mapbox {
         }
     };
 
-    async createMarker(map, coordinates, popupHTML) {
+    static async createMarker(map, coordinates, popupHTML) {
         const popup = new mapboxgl.Popup().setHTML(popupHTML);
         const marker = new mapboxgl.Marker({draggable: false}).setLngLat(coordinates).addTo(map).setPopup(popup);
         return marker;

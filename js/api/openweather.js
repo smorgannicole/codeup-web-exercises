@@ -1,4 +1,5 @@
 import {keys} from "../keys.js";
+import {formatDateTimestamp} from "../utils.js";
 
 class Forecast {
     /**
@@ -7,7 +8,7 @@ class Forecast {
      * @param {number} lng - longitude of coordinate
      * @returns {Promise}
      */
-    async getForecast(lat, lng) {
+    static async getForecast(lat, lng) {
         if (Array.isArray(lat)) {
             lng = lat[1];
             lat = lat[0];
@@ -21,11 +22,11 @@ class Forecast {
         return data;
     }
 
-    async fiveDayMap(forecast) {
+    static async fiveDayMap(forecast) {
         const fiveDayArr = forecast.daily.slice(0, 5);
         const better5DayForecast = fiveDayArr.map((day) => {
             const betterObject = {
-
+                day: day.dt,
                 dew_point: day.dew_point,
                 humidity: day.humidity,
                 temp_min: day.temp.min,

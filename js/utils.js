@@ -10,6 +10,10 @@ export const debounce = (fn, delay) => {
     };
 };
 export const formatMoney = (number) => {
-    let text = number.toLocaleString("en-US", {style:"currency", currency:"USD"});
+    let text = number.toLocaleString("en-US", {style: "currency", currency: "USD"});
     return text;
+}
+
+export const formatDateTimestamp = (dateObject) => {
+    let date = new Date(dateObject);
 }

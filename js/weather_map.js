@@ -1,20 +1,45 @@
 import Forecast from "./api/openweather.js";
 import Mapbox from "./api/mapbox.js";
 
+// createCard = (forecast) returns node
+// updateCards = (forecasts)
+
+const updateCards = async (searchTerm, map) => {
+    const coordinates = await Mapbox.getCoordinates(searchTerm);
+    const forecasts = await Forecast.getForecast(29.4252, -98.4946);
+    const mapFor5Days = await Forecast.fiveDayMap(forecasts);
+    // loop through mapFor5Days
+    // create a card
+    // append the card to the dom
+
+    // map.flyTo the new coords
+}
+
 //MAIN
 (async () => {
-    const forecastInstance = new Forecast();
-    const mapboxInstance = new Mapbox();
+    // const months = [
+    //     "Jan",
+    //     "Feb",
+    //     "Mar",
+    //     "Apr",
+    //     "May",
+    //     "Jun",
+    //     "Jul",
+    //     "Aug",
+    //     "Sep",
+    //     "Oct",
+    //     "Nov",
+    //     "Dec"
+    // ]
+    // console.log(months[10]);
+    // const day = new Date(1701206207 * 1000);
+    // const dayString = `${months[day.getMonth()]} ${day.getDay()}, ${day.getFullYear()}`;
+    // console.log(dayString);
+    // console.log(sanAntonioForecast)
 
-    const sanAntonioForecast = await forecastInstance.getForecast(29.4252, -98.4946);
-    console.log(sanAntonioForecast)
-    const coordinates = await mapboxInstance.getCoordinates('San Antonio, Texas');
-    const map = await mapboxInstance.createMap('map', [-98.4946, 29.4252], 9);
-    const address = await mapboxInstance.getAddress(-98.4946, 29.4252);
-    const popupHTML = '<h1>San Antonio</h1>';
-    const markerCoordinates = [-98.4946, 29.4252];
-    const marker = await mapboxInstance.createMarker(map, markerCoordinates, popupHTML);
+    const map = await Mapbox.createMap('map', [-98.4946, 29.4252], 9);
+    await updateCards("San Antonio, TX", map);
 
-    const mapFor5Days = await forecastInstance.fiveDayMap(sanAntonioForecast);
-    console.log(mapFor5Days)
+    // add an event listener to a search input here
+    // runs updateCards
 })();
