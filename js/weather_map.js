@@ -107,6 +107,9 @@ const getCurrentDay = (timeStamp) => {
 }
 const renderTabButtons = (forecast) => {
     const btnParent = document.querySelector('.btnParent');
+    btnParent.innerHTML = '';
+
+    
     const tabBtnElement = document.createElement(`div`);
     tabBtnElement.classList.add(`col`, `d-flex`, `flex-column`, `btnParent`);
     for (let i = 0; i < forecast.length; i++) {
@@ -139,7 +142,7 @@ const eventHandler = () => {
     const searchInput = document.querySelector(`#search`);
     searchBtn.addEventListener(`click`, e => {
         const enteredAddress = searchInput.value;
-        const updateHero = updateCards(enteredAddress);
+        updateCards(enteredAddress)
     })
 }
 const updateCards = async (searchTerm) => {
@@ -149,10 +152,10 @@ const updateCards = async (searchTerm) => {
     const forecasts = await Forecast.getForecast(lng, lat);
     const mapFor5Days = await Forecast.fiveDayMap(forecasts);
 
-    for (let index = 0; index < mapFor5Days.length; index++) {
-        const day = mapFor5Days[index];
+    for (let day of mapFor5Days) {
         await renderLeftHero(day);
         await renderRightHero(day);
+        await renderTabButtons(mapFor5Days);
         if (index === mapFor5Days.length - 1) {
             renderHeader(mapFor5Days, searchTerm);
         }
@@ -177,9 +180,10 @@ const updateCards = async (searchTerm) => {
     for (let day of mapFor5Days) {
         await renderLeftHero(day);
         await renderRightHero(day);
-        // await renderHeader(day, `San Antonio`)
+        await renderHeader(day, `San Antonio`)
         await renderTabButtons(mapFor5Days);
     }
+
 
     console.log(mapFor5Days);
     eventHandler();
