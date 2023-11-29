@@ -92,3 +92,11 @@ p.opacity {
 .hide {
     display: none;
 }
+
+.tabContent {
+    display: none;
+}
+
+.tabContent.active {
+    display: block;
+}

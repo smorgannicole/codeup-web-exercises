@@ -1,6 +1,5 @@
 import Forecast from "./api/openweather.js";
 import Mapbox from "./api/mapbox.js";
-import mapbox from "./api/mapbox.js";
 
 const renderLeftHero = (forecast) => {
     const forecastElement = document.createElement(`div`);
@@ -81,7 +80,6 @@ const renderRightHero = (forecast) => {
     document.querySelector("#rightSideHero").appendChild(imgQuoteElement);
     return imgQuoteElement;
 }
-// updateCards = (forecasts)
 const getCurrentDay = (timeStamp) => {
     const months = [
         "Jan",
@@ -99,11 +97,7 @@ const getCurrentDay = (timeStamp) => {
     ]
     const day = new Date(timeStamp * 1000);
     const dayString = `${months[day.getMonth()]} ${day.getDay()}, ${day.getFullYear()}`;
-    const dayStringShort = `${months[day.getMonth()]} ${day.getDate()} ${day.toLocaleString('en-us', {weekday: 'long'})}`;
-    // console.log(sanAntonioForecast)
-    // const map = await Mapbox.createMap('map', [-98.4946, 29.4252], 9);
-    // await updateCards("San Antonio, TX", map);
-    return dayStringShort;
+    return `${months[day.getMonth()]} ${day.getDate()} ${day.toLocaleString('en-us', {weekday: 'long'})}`;
 }
 const renderTabButtons = (forecast) => {
     const btnParent = document.querySelector('.btnParent');
@@ -113,7 +107,7 @@ const renderTabButtons = (forecast) => {
         const button = document.createElement(`button`);
         button.classList.add(`tabLinks`);
         button.innerHTML = `<span style="font-weight: 400; font-size: 120%">${dayDate}</span>`;
-        button.setAttribute('data-date', `date${index + 1}`);
+        button.setAttribute('data-date', `date="${index + 1}"`);
         button.addEventListener('click', e => renderForecast(day));
         btnParent.appendChild(button);
     });
@@ -142,6 +136,24 @@ const eventHandler = () => {
         await updateCards(enteredAddress);
         searchInput.value = ``;
     });
+    const buttons = document.querySelectorAll(`[data-date]`);
+    for (let i = 0; i < buttons.length; i++) {
+        buttons.addEventListener(`click`, e => {
+            const tabId = buttons[i].getAttribute(`date`);
+            for (let content of tabContents) {
+                content.classList.remove(`active`);
+            }
+            const selectedTab = document.querySelector(`#${tabId}`);
+            if (selectedTab) {
+                selectedTab.classList.add('active');
+                h2Text.innerHTML = headings[i - 1];
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }
+        })
+    }
 };
 const updateCards = async (searchTerm) => {
     const coordinates = await Mapbox.getCoordinates(searchTerm);
@@ -176,17 +188,6 @@ const clearExistingContent = () => {
     document.querySelector("#rightSideHero").innerHTML = "";
     document.querySelector(".btnParent").innerHTML = "";
 };
-// const updateCards = async (searchTerm, map) => {
-//     const coordinates = await Mapbox.getCoordinates(searchTerm);
-//     // const forecasts = await Forecast.getForecast(29.4252, -98.4946);
-//     // const mapFor5Days = await Forecast.fiveDayMap(forecasts);
-//     // loop through mapFor5Days
-//     // create a card
-//     // append the card to the dom
-//
-//     // map.flyTo the new coords
-// }
-
 
 //MAIN
 (async () => {
@@ -195,11 +196,8 @@ const clearExistingContent = () => {
     for (let day of mapFor5Days) {
         await renderLeftHero(day);
         await renderRightHero(day);
-        await renderHeader(day, `San Antonio`);
         await renderTabButtons(mapFor5Days);
     }
-
-
-    console.log(mapFor5Days);
+    await renderHeader(mapFor5Days[0], `San Antonio`);
     eventHandler();
 })();
