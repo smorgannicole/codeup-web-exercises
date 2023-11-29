@@ -7,7 +7,7 @@ const renderLeftHero = (forecast) => {
     forecastElement.classList.add(`col`, `purpleBg`, `temp`, `p-3`, `d-flex`, `flex-column`)
     const currentDate = new Date();
     const forecastDate = new Date(forecast.day * 1000);
-    const temperature = forecastDate > currentDate ? forecast.avg_temp : forecast.current_temp;
+    const temperature = forecastDate > currentDate ? parseInt(forecast.avg_temp) : parseInt(forecast.current_temp);
     forecastElement.innerHTML = `
         <div class="d-flex flex-column">
             <h2 style="font-weight: 300; font-size: 500%">${temperature}<span
@@ -16,8 +16,8 @@ const renderLeftHero = (forecast) => {
             <p class="opacity">${forecast.description}</p>
         </div>
         <div class="d-flex flex-column mt-5">
-            <p class="opacity mb-1">${forecast.temp_min} <span style="font-size: 80%">°F</span> / ${forecast.temp_max} <span style="font-size: 80%">°F</span></p>
-            <p class="opacity mb-1">${forecast.wind_speed} m/h Wind</p>
+            <p class="opacity mb-1">${parseInt(forecast.temp_min)} <span style="font-size: 80%">°F</span> / ${parseInt(forecast.temp_max)} <span style="font-size: 80%">°F</span></p>
+            <p class="opacity mb-1">${parseInt(forecast.wind_speed)} m/h Wind</p>
             <p class="opacity mb-1">${forecast.humidity}% Humidity</p>
         </div>
     `;
@@ -108,21 +108,17 @@ const getCurrentDay = (timeStamp) => {
 const renderTabButtons = (forecast) => {
     const btnParent = document.querySelector('.btnParent');
     btnParent.innerHTML = '';
-
-    
-    const tabBtnElement = document.createElement(`div`);
-    tabBtnElement.classList.add(`col`, `d-flex`, `flex-column`, `btnParent`);
-    for (let i = 0; i < forecast.length; i++) {
-        const dayDate = getCurrentDay(forecast[i].day);
+    forecast.forEach((day, index) => {
+        const dayDate = getCurrentDay(day.day);
         const button = document.createElement(`button`);
         button.classList.add(`tabLinks`);
         button.innerHTML = `<span style="font-weight: 400; font-size: 120%">${dayDate}</span>`;
-        button.setAttribute('data-date', `date${i + 1}`);
-        tabBtnElement.appendChild(button);
-    }
-    document.querySelector(".btnParent").appendChild(tabBtnElement);
-    return tabBtnElement;
-}
+        button.setAttribute('data-date', `date${index + 1}`);
+        button.addEventListener('click', e => renderForecast(day));
+        btnParent.appendChild(button);
+    });
+    return btnParent;
+};
 const renderHeader = (forecast, address) => {
     const dayInfo = forecast.day;
     const dayDate = getCurrentDay(dayInfo);
@@ -130,7 +126,7 @@ const renderHeader = (forecast, address) => {
     headerElement.classList.add(`row`, `mx-0`, `p-4`);
     headerElement.innerHTML = `
         <div class="col">
-            <h1 style="font-weight: 300">San Antonio</h1>
+            <h1 style="font-weight: 300">${address}</h1>
             <p>${dayDate}</p>
         </div>
     `;
@@ -140,27 +136,45 @@ const renderHeader = (forecast, address) => {
 const eventHandler = () => {
     const searchBtn = document.querySelector(`.searchBtn`);
     const searchInput = document.querySelector(`#search`);
-    searchBtn.addEventListener(`click`, e => {
-        const enteredAddress = searchInput.value;
-        updateCards(enteredAddress)
-    })
-}
+    searchBtn.addEventListener(`click`, async e => {
+        e.preventDefault();
+        let enteredAddress = searchInput.value;
+        await updateCards(enteredAddress);
+        searchInput.value = ``;
+    });
+};
 const updateCards = async (searchTerm) => {
     const coordinates = await Mapbox.getCoordinates(searchTerm);
     const lat = coordinates[0];
     const lng = coordinates[1];
     const forecasts = await Forecast.getForecast(lng, lat);
     const mapFor5Days = await Forecast.fiveDayMap(forecasts);
+    setTimeout(async () => {
+        const mapElement = document.querySelector(`#map`);
+        mapElement.classList.remove(`hide`);
+        await Mapbox.createMap("map", [lat, lng], 9);
+    }, 100)
+    setTimeout(async () => {
+        const mapElement = document.querySelector(`#map`);
+        mapElement.classList.add(`hide`);
+    }, 4000)
+
+
+    clearExistingContent();
 
     for (let day of mapFor5Days) {
         await renderLeftHero(day);
         await renderRightHero(day);
         await renderTabButtons(mapFor5Days);
-        if (index === mapFor5Days.length - 1) {
-            renderHeader(mapFor5Days, searchTerm);
-        }
     }
+
+    renderHeader(mapFor5Days[0], searchTerm);
     await Mapbox.createMap("map", coordinates, 9);
+};
+const clearExistingContent = () => {
+    document.querySelector("#leftSideHero").innerHTML = "";
+    document.querySelector("#rightSideHero").innerHTML = "";
+    document.querySelector(".btnParent").innerHTML = "";
 };
 // const updateCards = async (searchTerm, map) => {
 //     const coordinates = await Mapbox.getCoordinates(searchTerm);
@@ -173,6 +187,7 @@ const updateCards = async (searchTerm) => {
 //     // map.flyTo the new coords
 // }
 
+
 //MAIN
 (async () => {
     const forecasts = await Forecast.getForecast(29.4252, -98.4946);
@@ -180,16 +195,11 @@ const updateCards = async (searchTerm) => {
     for (let day of mapFor5Days) {
         await renderLeftHero(day);
         await renderRightHero(day);
-        await renderHeader(day, `San Antonio`)
+        await renderHeader(day, `San Antonio`);
         await renderTabButtons(mapFor5Days);
     }
 
 
     console.log(mapFor5Days);
     eventHandler();
-    // console.log(forecasts)
-    // console.log(mapFor5Days)
-
-    // add an event listener to a search input here
-    // runs updateCards
 })();
