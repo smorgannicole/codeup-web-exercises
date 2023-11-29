@@ -12,10 +12,7 @@
 <div class="page-wrapper">
     <main class="container hero d-flex flex-column">
         <div class="row mx-0 p-4">
-            <div class="col">
-                <h1 style="font-weight: 300">San Antonio</h1>
-                <p>Nov 28, Tuesday</p>
-            </div>
+            <!--            header-->
             <div class="col d-flex justify-content-end">
                 <form>
                     <label for="search"></label>
@@ -26,35 +23,14 @@
         </div>
         <div class="row flex-grow-1 mx-0">
             <div class="col d-flex flex-column btnParent">
-                <button class="tabLinks selectedBtn" data-date="date1"><span
-                        style="font-weight: 400; font-size: 120%">Nov 02</span><br>Tuesday
-                </button>
-                <button class="tabLinks" data-date="date2"><span
-                        style="font-weight: 400; font-size: 120%">Nov 02</span><br>Tuesday
-                </button>
-                <button class="tabLinks" data-date="date3"><span
-                        style="font-weight: 400; font-size: 120%">Nov 02</span><br>Tuesday
-                </button>
-                <button class="tabLinks" data-date="date4"><span
-                        style="font-weight: 400; font-size: 120%">Nov 02</span><br>Tuesday
-                </button>
-                <button class="tabLinks lastBtn" data-date="date5"><span
-                        style="font-weight: 400; font-size: 120%">Nov 02</span><br>Tuesday
-                </button>
+                <!--                button tabs-->
             </div>
-            <div class="col purpleBg temp p-3">
-                <h2 style="font-weight: 300; font-size: 500%">40<span
-                        style="font-size: 70%; font-weight: 200; opacity: 40%">°F</span>
-                </h2>
-                <p class="opacity">8:00pm, Heavy Rain</p>
-                <p class="opacity">90% precipitation</p>
-                <p class="opacity">Wind Speed</p>
-                <p class="opacity">Humidity</p>
+            <div class="col d-flex flex-column purpleBg temp p-3" id="leftSideHero">
+                <!--               left col of hero-->
             </div>
-            <div class="col d-flex flex-column purpleBg rightMostCol p-3 justify-content-end align-items-end">
-                <img class="flex-grow-1" style="max-width: 10px; border: 3px solid #000" src="./img/play-btn.png"
-                     alt="">
-                <p class="d-flex align-items-end opacity flex-grow-1 text-center">Quote about storms</p>
+            <div class="col d-flex flex-column purpleBg rightMostCol p-3 justify-content-end align-items-end"
+                 id="rightSideHero">
+                <!--                right col of hero-->
             </div>
         </div>
     </main>

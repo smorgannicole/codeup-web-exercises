@@ -23,16 +23,18 @@ class Forecast {
     }
 
     static async fiveDayMap(forecast) {
+        console.log(forecast)
         const fiveDayArr = forecast.daily.slice(0, 5);
         const better5DayForecast = fiveDayArr.map((day) => {
             const betterObject = {
-                day: day.dt,
-                dew_point: day.dew_point,
-                humidity: day.humidity,
+                avg_temp: day.temp.day,
+                current_temp: forecast.current.temp,
+                description: day.weather[0].main,
                 temp_min: day.temp.min,
                 temp_max: day.temp.max,
-                uvi: day.uvi,
-                description: day.weather[0].main,
+                wind_speed: day.wind_speed,
+                humidity: day.humidity,
+                day: day.dt,
             };
             return betterObject;
         });
