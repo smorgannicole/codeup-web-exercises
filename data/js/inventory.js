@@ -110,19 +110,19 @@ const eventHandler = () => {
     // const emailButton = document.querySelector('#email-btn');
     // emailButton.addEventListener('click', closePopup);
 
-    shoppingCartBtn.addEventListener(`click`, e => {
-        cart.classList.toggle(`hide-shopping-cart`);
-    })
-
-    for (let i = 0; i < addToCartBtns.length; i++) {
-        addToCartBtns[i].addEventListener('click', e => {
-            const buttonId = addToCartBtns[i].getAttribute('data-add');
-            const clickedAddBtn = document.querySelector(`#${buttonId}`);
-            if (clickedAddBtn) {
-
-            }
-        });
-    }
+    // shoppingCartBtn.addEventListener(`click`, e => {
+    //     cart.classList.toggle(`hide-shopping-cart`);
+    // })
+    //
+    // for (let i = 0; i < addToCartBtns.length; i++) {
+    //     addToCartBtns[i].addEventListener('click', e => {
+    //         const buttonId = addToCartBtns[i].getAttribute('data-add');
+    //         const clickedAddBtn = document.querySelector(`#${buttonId}`);
+    //         if (clickedAddBtn) {
+    //
+    //         }
+    //     });
+    // }
 };
 //MAIN
 (async () => {
