@@ -20,8 +20,8 @@ const renderLeftHero = (forecast) => {
             <p class="opacity mb-1">${forecast.humidity}% Humidity</p>
         </div>
     `;
-    if (forecastElement)
-        document.querySelector("#leftSideHero").appendChild(forecastElement);
+    // if (forecastElement)
+    document.querySelector("#leftSideHero").appendChild(forecastElement);
     return forecastElement;
 }
 const getImagePath = (description) => {
@@ -117,16 +117,20 @@ const renderHeader = (forecast, address) => {
     const dayInfo = forecast.day;
     const dayDate = getCurrentDay(dayInfo);
     const headerElement = document.createElement(`div`);
-    headerElement.classList.add(`row`, `mx-0`, `p-4`);
+    headerElement.classList.add(`col`, `d-flex`, `justify-content-end`);
     headerElement.innerHTML = `
         <div class="col">
             <h1 style="font-weight: 300">${address}</h1>
             <p>${dayDate}</p>
         </div>
     `;
-    document.querySelector(".btnParent").prepend(headerElement);
+    const headerParent = document.querySelector(".headerParent");
+    if (headerParent.firstChild) {
+        headerParent.removeChild(headerParent.firstChild);
+    }
+    headerParent.insertAdjacentElement('afterbegin', headerElement);
     return headerElement;
-}
+};
 const eventHandler = (mapFor5Days) => {
     const searchBtn = document.querySelector(`.searchBtn`);
     const searchInput = document.querySelector(`#search`);
@@ -170,6 +174,9 @@ const updateCards = async (searchTerm) => {
 
     renderHeader(mapFor5Days[0], searchTerm);
     await Mapbox.createMap("map", coordinates, 9);
+    const clearHeaderContent = () => {
+        document.querySelector('.headerParent').innerHTML = '';
+    };
 };
 const renderForecast = (selectedForecast) => {
     clearExistingContent();
@@ -177,19 +184,20 @@ const renderForecast = (selectedForecast) => {
     renderRightHero(selectedForecast);
 };
 const clearExistingContent = () => {
-    document.querySelector("#leftSideHero").innerHTML = "";
-    document.querySelector("#rightSideHero").innerHTML = "";
+    document.querySelector(`#leftSideHero`).innerHTML = "";
+    document.querySelector(`#rightSideHero`).innerHTML = "";
 };
 
 //MAIN
 (async () => {
     const forecasts = await Forecast.getForecast(29.4252, -98.4946);
     const mapFor5Days = await Forecast.fiveDayMap(forecasts);
-    for (let day of mapFor5Days) {
-        await renderLeftHero(day);
-        await renderRightHero(day);
-        await renderTabButtons(mapFor5Days);
-    }
+    mapFor5Days.forEach((day, index) => {
+        renderLeftHero(day);
+        renderRightHero(day);
+        renderTabButtons(mapFor5Days);
+    })
+
     await renderHeader(mapFor5Days[0], `San Antonio`);
     eventHandler(mapFor5Days);
 })();
