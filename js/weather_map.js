@@ -1,9 +1,9 @@
 import Forecast from "./api/openweather.js";
 import Mapbox from "./api/mapbox.js";
 
-const renderLeftHero = (forecast) => {
+const renderLeftHero = (forecast, index) => {
     const forecastElement = document.createElement(`div`);
-    forecastElement.classList.add(`col`, `purpleBg`, `temp`, `p-3`, `d-flex`, `flex-column`)
+    forecastElement.classList.add(`div`, `purpleBg`, `temp`, `p-3`, `d-flex`, `flex-column`, `num${index}`);
     const currentDate = new Date();
     const forecastDate = new Date(forecast.day * 1000);
     const temperature = forecastDate > currentDate ? parseInt(forecast.avg_temp) : parseInt(forecast.current_temp);
@@ -20,10 +20,11 @@ const renderLeftHero = (forecast) => {
             <p class="opacity mb-1">${forecast.humidity}% Humidity</p>
         </div>
     `;
-    // if (forecastElement)
+
+
     document.querySelector("#leftSideHero").appendChild(forecastElement);
     return forecastElement;
-}
+};
 const getImagePath = (description) => {
     switch (description.toLowerCase()) {
         case "clouds":
@@ -69,7 +70,7 @@ const renderRightHero = (forecast) => {
     const imgPath = getImagePath(description);
     const quote = getQuote(description);
     const imgQuoteElement = document.createElement(`div`);
-    imgQuoteElement.classList.add(`col`, `d-flex`, `flex-column`, `purpleBg`, `rightMostCol`, `p-3`, `align-items-end`, `justify-space-between`);
+    imgQuoteElement.classList.add(`div`, `d-flex`, `flex-column`, `purpleBg`, `rightMostCol`, `p-3`, `align-items-end`, `justify-space-between`);
     imgQuoteElement.innerHTML = `
         <div class="d-flex justify-content-end">
             <img style="max-width: 60%" src="${imgPath}" alt="">
@@ -102,15 +103,36 @@ const getCurrentDay = (timeStamp) => {
 }
 const renderTabButtons = (forecast) => {
     const btnParent = document.querySelector('.btnParent');
+    btnParent.innerHTML = ''; // Clear the btnParent before appending new buttons
+
+    const leftSideHero = document.querySelector('#leftSideHero');
+
     forecast.forEach((day, index) => {
         const dayDate = getCurrentDay(day.day);
         const button = document.createElement(`button`);
         button.classList.add(`tabLinks`);
         button.innerHTML = `<span style="font-weight: 400; font-size: 120%">${dayDate}</span>`;
         button.setAttribute('data-date', `${index}`);
-        button.addEventListener('click', e => renderForecast(day));
+
+        button.addEventListener('click', () => {
+            const allForecastElements = document.querySelectorAll('.col.purpleBg.temp.p-3.d-flex.flex-column');
+            const forecastElementToShow = allForecastElements[index];
+
+            allForecastElements.forEach(el => {
+                el.style.display = 'none'; // Hide all forecast elements
+            });
+
+            forecastElementToShow.style.display = 'block'; // Show the clicked forecast element
+        });
+
         btnParent.appendChild(button);
     });
+
+    // Display the first forecast element by default
+    if (leftSideHero.children[0]) {
+        leftSideHero.children[0].style.display = 'block';
+    }
+
     return btnParent;
 };
 const renderHeader = (forecast, address) => {
@@ -193,7 +215,7 @@ const clearExistingContent = () => {
     const forecasts = await Forecast.getForecast(29.4252, -98.4946);
     const mapFor5Days = await Forecast.fiveDayMap(forecasts);
     mapFor5Days.forEach((day, index) => {
-        renderLeftHero(day);
+        renderLeftHero(day, index);
         renderRightHero(day);
         renderTabButtons(mapFor5Days);
     })
