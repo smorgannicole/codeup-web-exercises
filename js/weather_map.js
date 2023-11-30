@@ -20,7 +20,8 @@ const renderLeftHero = (forecast) => {
             <p class="opacity mb-1">${forecast.humidity}% Humidity</p>
         </div>
     `;
-    document.querySelector("#leftSideHero").appendChild(forecastElement);
+    if (forecastElement)
+        document.querySelector("#leftSideHero").appendChild(forecastElement);
     return forecastElement;
 }
 const getImagePath = (description) => {
@@ -101,13 +102,12 @@ const getCurrentDay = (timeStamp) => {
 }
 const renderTabButtons = (forecast) => {
     const btnParent = document.querySelector('.btnParent');
-    btnParent.innerHTML = '';
     forecast.forEach((day, index) => {
         const dayDate = getCurrentDay(day.day);
         const button = document.createElement(`button`);
         button.classList.add(`tabLinks`);
         button.innerHTML = `<span style="font-weight: 400; font-size: 120%">${dayDate}</span>`;
-        button.setAttribute('data-date', `${index + 1}`);
+        button.setAttribute('data-date', `${index}`);
         button.addEventListener('click', e => renderForecast(day));
         btnParent.appendChild(button);
     });
@@ -140,7 +140,7 @@ const eventHandler = (mapFor5Days) => {
     buttons.forEach((button, index) => {
         button.addEventListener('click', () => {
             const dateIndex = button.getAttribute('data-date');
-            renderForecast(mapFor5Days[dateIndex]); // Update the renderForecast function accordingly
+            renderForecast(mapFor5Days[dateIndex]);
         });
     });
 };
@@ -179,7 +179,6 @@ const renderForecast = (selectedForecast) => {
 const clearExistingContent = () => {
     document.querySelector("#leftSideHero").innerHTML = "";
     document.querySelector("#rightSideHero").innerHTML = "";
-    document.querySelector(".btnParent").innerHTML = "";
 };
 
 //MAIN
@@ -191,7 +190,6 @@ const clearExistingContent = () => {
         await renderRightHero(day);
         await renderTabButtons(mapFor5Days);
     }
-
     await renderHeader(mapFor5Days[0], `San Antonio`);
     eventHandler(mapFor5Days);
 })();
