@@ -25,7 +25,7 @@ class Mapbox {
         const map = new mapboxgl.Map({
             container: elementId,
             style: "mapbox://styles/mapbox/navigation-night-v1", // style URL
-            center: coordinates, // starting position [lng, lat]
+            center: [-98.4946, 29.4252], // starting position [lng, lat]
             zoom: 9, // starting zoom
             keyboard: false,
         });

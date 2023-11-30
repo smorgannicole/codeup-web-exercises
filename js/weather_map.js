@@ -46,21 +46,21 @@ const getImagePath = (description) => {
 const getQuote = (description) => {
     switch (description.toLowerCase()) {
         case "clouds":
-            return `"Picture yourself in a boat on a river\n With tangerine trees and marmalade skies<br><em><span style="font-weight: 500">Lucy in the Sky with Diamonds</span> by The Beatles</em>`;
+            return `"Behind every cloud is another cloud."<br><em><span style="font-weight: 500">- Judy Garland</span></em>`;
         case "atmosphere":
-            return `"Picture yourself in a boat on a river\n With tangerine trees and marmalade skies<br><em><span style="font-weight: 500">Lucy in the Sky with Diamonds</span> by The Beatles</em>`;
+            return `"The clouds, - the only birds that never sleep."<br><em><span style="font-weight: 500">- Victor Hugo</span></em>`;
         case "drizzle":
-            return `"Until the rain starts, coming down, pouring<br>Chill, I got my umbrella <br> <em><span style="font-weight: 500">The Rain (Supa Dupa Fly)</span> by Missy Elliott</em>`;
+            return `"The sky and the strong wind have moved the spirit inside me."<br><em><span style="font-weight: 500">- Uvavnuk, Inuit shaman woman</span></em>`;
         case "clear":
-            return "sunny lyrics";
+            return `"Keep your face always toward the sunshine - and shadows will fall behind you."<br><em><span style="font-weight: 500">- Walt Whitman</span></em>`;
         case "snow":
-            return "Snow lyrics";
+            return `"A snowball in the face is surely the perfect beginning to a lasting friendship."<br><em><span style="font-weight: 500">- Markus Zusak</span></em>`;
         case "rain":
-            return `"Purple rain, purple rain, I only wanted to see you, Bathing in the purple rain"<br> <em><span style="font-weight: 500">Purple Rain</span> by Prince</em>`;
+            return `"I always like walking in the rain, so no one can see me crying."<br><em><span style="font-weight: 500">- Charles Chaplin</span></em>`;
         case "thunderstorm":
-            return "thunderstorm lyrics";
+            return `"Thunderstorms are as much our friends as the sunshine."<br><em><span style="font-weight: 500">- Criss Jami</span></em>`;
         default:
-            return "default lyrics";
+            return "default quote";
     }
 }
 const renderRightHero = (forecast) => {
@@ -73,7 +73,7 @@ const renderRightHero = (forecast) => {
         <div class="col d-flex justify-content-end flex-grow-1">
             <img src="${imgPath}" alt="">
         </div>
-        <div style="font-weight: 300; opacity: 70%" class="col-9 d-flex flex-column flex-grow-1 align-items-end justify-content-end">
+        <div style="font-weight: 300; opacity: 70%" class="col-9 d-flex flex-column flex-grow-1 align-items-end justify-content-end text-end">
             <p>${quote}</p>
         </div>
     `;
@@ -96,9 +96,9 @@ const getCurrentDay = (timeStamp) => {
         "Dec"
     ]
     const day = new Date(timeStamp * 1000);
-    const fullStringDate = `<span style="font-weight: 350">${months[day.getMonth()]} ${day.getDate()} ${day.toLocaleString('en-us', {weekday: 'long'})}</span>`;
+    const fullStringDate = `<span style="font-weight: 350">${months[day.getMonth()]} ${day.getDate()} ${day.toLocaleString(`en-us`, {weekday: `long`})}</span>`;
 
-    const shortFormattedDate = `<span style="font-weight: 300">${months[day.getMonth()]} <br> ${day.getDate()} ${day.toLocaleString('en-us', {weekday: 'long'})}</span>`;
+    const shortFormattedDate = `<span style="font-weight: 300">${months[day.getMonth()]} <br> ${day.getDate()} ${day.toLocaleString(`en-us`, {weekday: `long`})}</span>`;
 
     return {
         fullStringDate,
@@ -106,8 +106,8 @@ const getCurrentDay = (timeStamp) => {
     };
 }
 const renderTabButtons = (forecast) => {
-    const btnParent = document.querySelector('.btnParent');
-    btnParent.innerHTML = '';
+    const btnParent = document.querySelector(`.btnParent`);
+    btnParent.innerHTML = ``;
 
     forecast.forEach((day, index) => {
         const dayDate = getCurrentDay(day.day);
@@ -116,15 +116,26 @@ const renderTabButtons = (forecast) => {
         button.innerHTML = `
             <span style="font-weight: 400; font-size: 120%">${dayDate.shortFormattedDate}</span>
         `;
-        button.setAttribute('data-date', `${index}`);
+        button.setAttribute(`data-date`, `${index}`);
 
-        button.addEventListener('click', () => {
+        button.addEventListener(`click`, () => {
+            // Clear existing content
             clearExistingContent();
             renderLeftHero(forecast[index], index);
             renderRightHero(forecast[index], index);
+
+            const allButtons = document.querySelectorAll(`.tabLinks`);
+            allButtons.forEach((btn) => {
+                btn.style.backgroundColor = ``;
+            });
+            button.style.backgroundColor = `#a9d5f8`;
         });
 
         btnParent.appendChild(button);
+
+        if (index === 0) {
+            button.style.backgroundColor = `#a9d5f8`;
+        }
     });
 
     return btnParent;
@@ -150,7 +161,7 @@ const renderHeader = (forecast, address) => {
 const eventHandler = (mapFor5Days) => {
     const searchBtn = document.querySelector(`.searchBtn`);
     const searchInput = document.querySelector(`#search`);
-    const btnParent = document.querySelector('.btnParent');
+    const btnParent = document.querySelector(`.btnParent`);
 
     searchBtn.addEventListener(`click`, async (e) => {
         e.preventDefault();
@@ -159,9 +170,9 @@ const eventHandler = (mapFor5Days) => {
         searchInput.value = ``;
     });
 
-    btnParent.addEventListener('click', (e) => {
-        if (e.target.matches('.tabLinks')) {
-            const buttonId = e.target.getAttribute('data-date');
+    btnParent.addEventListener(`click`, (e) => {
+        if (e.target.matches(`.tabLinks`)) {
+            const buttonId = e.target.getAttribute(`data-date`);
             clearExistingContent();
             renderLeftHero(mapFor5Days[buttonId], buttonId);
             renderRightHero(mapFor5Days[buttonId], buttonId);
@@ -176,13 +187,17 @@ const updateCards = async (searchTerm) => {
     const mapFor5Days = await Forecast.fiveDayMap(forecasts);
     setTimeout(async () => {
         const mapElement = document.querySelector(`#map`);
+        const mapParent = document.querySelector(`.overlay`);
         mapElement.classList.remove(`hide`);
+        mapParent.classList.remove(`hide`);
         await Mapbox.createMap("map", [lat, lng], 9);
-    }, 100)
+    }, 10)
     setTimeout(async () => {
+        const mapParent = document.querySelector(`.overlay`);
         const mapElement = document.querySelector(`#map`);
+        mapParent.classList.add(`hide`);
         mapElement.classList.add(`hide`);
-    }, 4000)
+    }, 5000)
 
     clearExistingContent();
     await renderLeftHero(mapFor5Days[0]);
@@ -190,8 +205,6 @@ const updateCards = async (searchTerm) => {
     await renderTabButtons(mapFor5Days);
 
     renderHeader(mapFor5Days[0], searchTerm);
-
-    await Mapbox.createMap("map", coordinates, 9);
 };
 // const renderForecast = (selectedForecast) => {
 //

@@ -81,16 +81,31 @@ p.opacity {
 }
 
 .map {
-    max-width: 50%;
-    display: flex;
-    flex-direction: column;
-    aspect-ratio: 3/2;
+    width: 50%;
+    height: 50vh;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.9);
     border-radius: 20px;
     position: fixed;
     top: 50%;
     left: 50%;
+    transform: translate(-50%, -50%);
     padding: 20px;
     z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(3px);
+    z-index: 998;
 }
 
 
