@@ -107,7 +107,7 @@ const renderTabButtons = (forecast) => {
         const button = document.createElement(`button`);
         button.classList.add(`tabLinks`);
         button.innerHTML = `<span style="font-weight: 400; font-size: 120%">${dayDate}</span>`;
-        button.setAttribute('data-date', `date="${index + 1}"`);
+        button.setAttribute('data-date', `${index + 1}`);
         button.addEventListener('click', e => renderForecast(day));
         btnParent.appendChild(button);
     });
@@ -127,7 +127,7 @@ const renderHeader = (forecast, address) => {
     document.querySelector(".btnParent").prepend(headerElement);
     return headerElement;
 }
-const eventHandler = () => {
+const eventHandler = (mapFor5Days) => {
     const searchBtn = document.querySelector(`.searchBtn`);
     const searchInput = document.querySelector(`#search`);
     searchBtn.addEventListener(`click`, async e => {
@@ -136,24 +136,13 @@ const eventHandler = () => {
         await updateCards(enteredAddress);
         searchInput.value = ``;
     });
-    const buttons = document.querySelectorAll(`[data-date]`);
-    for (let i = 0; i < buttons.length; i++) {
-        buttons.addEventListener(`click`, e => {
-            const tabId = buttons[i].getAttribute(`date`);
-            for (let content of tabContents) {
-                content.classList.remove(`active`);
-            }
-            const selectedTab = document.querySelector(`#${tabId}`);
-            if (selectedTab) {
-                selectedTab.classList.add('active');
-                h2Text.innerHTML = headings[i - 1];
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            }
-        })
-    }
+    const buttons = document.querySelectorAll('.tabLinks');
+    buttons.forEach((button, index) => {
+        button.addEventListener('click', () => {
+            const dateIndex = button.getAttribute('data-date');
+            renderForecast(mapFor5Days[dateIndex]); // Update the renderForecast function accordingly
+        });
+    });
 };
 const updateCards = async (searchTerm) => {
     const coordinates = await Mapbox.getCoordinates(searchTerm);
@@ -171,7 +160,6 @@ const updateCards = async (searchTerm) => {
         mapElement.classList.add(`hide`);
     }, 4000)
 
-
     clearExistingContent();
 
     for (let day of mapFor5Days) {
@@ -182,6 +170,11 @@ const updateCards = async (searchTerm) => {
 
     renderHeader(mapFor5Days[0], searchTerm);
     await Mapbox.createMap("map", coordinates, 9);
+};
+const renderForecast = (selectedForecast) => {
+    clearExistingContent();
+    renderLeftHero(selectedForecast);
+    renderRightHero(selectedForecast);
 };
 const clearExistingContent = () => {
     document.querySelector("#leftSideHero").innerHTML = "";
@@ -198,6 +191,7 @@ const clearExistingContent = () => {
         await renderRightHero(day);
         await renderTabButtons(mapFor5Days);
     }
+
     await renderHeader(mapFor5Days[0], `San Antonio`);
-    eventHandler();
+    eventHandler(mapFor5Days);
 })();
