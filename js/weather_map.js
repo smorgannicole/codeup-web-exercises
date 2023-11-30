@@ -3,18 +3,18 @@ import Mapbox from "./api/mapbox.js";
 
 const renderLeftHero = (forecast, index) => {
     const forecastElement = document.createElement(`div`);
-    forecastElement.classList.add(`purpleBg`, `temp`, `p-3`, `d-flex`, `flex-column`, `num${index}`);
+    forecastElement.classList.add(`purpleBg`, `temp`, `p-3`, `d-flex`, `flex-column`, `flex-grow-1`, `num${index}`);
     const currentDate = new Date();
     const forecastDate = new Date(forecast.day * 1000);
     const temperature = forecastDate > currentDate ? parseInt(forecast.avg_temp) : parseInt(forecast.current_temp);
     forecastElement.innerHTML = `
-        <div class="d-flex flex-column">
+        <div class="d-flex flex-column flex-grow-1">
             <h2 style="font-weight: 300; font-size: 500%">${temperature}<span
                                 style="font-size: 70%; font-weight: 200; opacity: 40%">°F</span>
             </h2>
             <p class="opacity">${forecast.description}</p>
         </div>
-        <div class="d-flex flex-column mt-5">
+        <div class="d-flex flex-column flex-grow-1 mt-5">
             <p class="opacity mb-1">${parseInt(forecast.temp_min)} <span style="font-size: 80%">°F</span> / ${parseInt(forecast.temp_max)} <span style="font-size: 80%">°F</span></p>
             <p class="opacity mb-1">${parseInt(forecast.wind_speed)} m/h Wind</p>
             <p class="opacity mb-1">${forecast.humidity}% Humidity</p>
@@ -68,12 +68,12 @@ const renderRightHero = (forecast) => {
     const imgPath = getImagePath(description);
     const quote = getQuote(description);
     const imgQuoteElement = document.createElement(`div`);
-    imgQuoteElement.classList.add(`d-flex`, `flex-column`, `purpleBg`, `rightMostCol`, `p-3`, `align-items-end`, `justify-space-between`);
+    imgQuoteElement.classList.add(`d-flex`, `flex-column`, `purpleBg`, `rightMostCol`, `p-3`, `align-items-end`, `flex-grow-1`);
     imgQuoteElement.innerHTML = `
-        <div class="d-flex justify-content-end">
-            <img style="max-width: 60%" src="${imgPath}" alt="">
+        <div class="col d-flex justify-content-end flex-grow-1">
+            <img src="${imgPath}" alt="">
         </div>
-        <div style="font-weight: 300; opacity: 70%" class="d-flex flex-column flex-grow-1 align-items-end justify-content-end">
+        <div style="font-weight: 300; opacity: 70%" class="col-9 d-flex flex-column flex-grow-1 align-items-end justify-content-end">
             <p>${quote}</p>
         </div>
     `;
@@ -96,22 +96,37 @@ const getCurrentDay = (timeStamp) => {
         "Dec"
     ]
     const day = new Date(timeStamp * 1000);
-    const dayString = `${months[day.getMonth()]} ${day.getDay()}, ${day.getFullYear()}`;
-    return `${months[day.getMonth()]} ${day.getDate()} ${day.toLocaleString('en-us', {weekday: 'long'})}`;
+    const fullStringDate = `<span style="font-weight: 350">${months[day.getMonth()]} ${day.getDate()} ${day.toLocaleString('en-us', {weekday: 'long'})}</span>`;
+
+    const shortFormattedDate = `<span style="font-weight: 300">${months[day.getMonth()]} <br> ${day.getDate()} ${day.toLocaleString('en-us', {weekday: 'long'})}</span>`;
+
+    return {
+        fullStringDate,
+        shortFormattedDate
+    };
 }
 const renderTabButtons = (forecast) => {
     const btnParent = document.querySelector('.btnParent');
     btnParent.innerHTML = '';
+
     forecast.forEach((day, index) => {
         const dayDate = getCurrentDay(day.day);
         const button = document.createElement(`button`);
         button.classList.add(`tabLinks`);
         button.innerHTML = `
-            <span style="font-weight: 400; font-size: 120%">${dayDate}</span>
+            <span style="font-weight: 400; font-size: 120%">${dayDate.shortFormattedDate}</span>
         `;
         button.setAttribute('data-date', `${index}`);
+
+        button.addEventListener('click', () => {
+            clearExistingContent();
+            renderLeftHero(forecast[index], index);
+            renderRightHero(forecast[index], index);
+        });
+
         btnParent.appendChild(button);
     });
+
     return btnParent;
 };
 const renderHeader = (forecast, address) => {
@@ -121,35 +136,37 @@ const renderHeader = (forecast, address) => {
     headerElement.classList.add(`col`, `d-flex`, `justify-content-end`);
     headerElement.innerHTML = `
         <div class="col">
-            <h1 style="font-weight: 300">${address}</h1>
-            <p>${dayDate}</p>
+            <h1 class="addy" style="font-weight: 300">${address}</h1>
+            <p style="font-weight: 350">${dayDate.fullStringDate}</p>
         </div>
     `;
     const headerParent = document.querySelector(".headerParent");
     if (headerParent.firstChild) {
         headerParent.removeChild(headerParent.firstChild);
     }
-    headerParent.insertAdjacentElement('afterbegin', headerElement);
+    headerParent.prepend(headerElement);
     return headerElement;
 };
 const eventHandler = (mapFor5Days) => {
     const searchBtn = document.querySelector(`.searchBtn`);
     const searchInput = document.querySelector(`#search`);
-    searchBtn.addEventListener(`click`, async e => {
+    const btnParent = document.querySelector('.btnParent');
+
+    searchBtn.addEventListener(`click`, async (e) => {
         e.preventDefault();
         let enteredAddress = searchInput.value;
         await updateCards(enteredAddress);
         searchInput.value = ``;
     });
-    const buttons = document.querySelectorAll('.tabLinks');
-    for (let i = 0; i < buttons.length; i++) {
-        buttons[i].addEventListener(`click`, () => {
-            const buttonId = buttons[i].getAttribute('data-date');
+
+    btnParent.addEventListener('click', (e) => {
+        if (e.target.matches('.tabLinks')) {
+            const buttonId = e.target.getAttribute('data-date');
             clearExistingContent();
             renderLeftHero(mapFor5Days[buttonId], buttonId);
             renderRightHero(mapFor5Days[buttonId], buttonId);
-        });
-    }
+        }
+    });
 };
 const updateCards = async (searchTerm) => {
     const coordinates = await Mapbox.getCoordinates(searchTerm);
@@ -168,18 +185,13 @@ const updateCards = async (searchTerm) => {
     }, 4000)
 
     clearExistingContent();
-
-    for (let day of mapFor5Days) {
-        await renderLeftHero(day);
-        await renderRightHero(day);
-        await renderTabButtons(mapFor5Days);
-    }
+    await renderLeftHero(mapFor5Days[0]);
+    await renderRightHero(mapFor5Days[0]);
+    await renderTabButtons(mapFor5Days);
 
     renderHeader(mapFor5Days[0], searchTerm);
+
     await Mapbox.createMap("map", coordinates, 9);
-    const clearHeaderContent = () => {
-        document.querySelector('.headerParent').innerHTML = '';
-    };
 };
 // const renderForecast = (selectedForecast) => {
 //
@@ -193,9 +205,9 @@ const clearExistingContent = () => {
 (async () => {
     const forecasts = await Forecast.getForecast(29.4252, -98.4946);
     const mapFor5Days = await Forecast.fiveDayMap(forecasts);
-    mapFor5Days.forEach((day, index) => {
-        renderTabButtons(mapFor5Days);
-    })
+    renderTabButtons(mapFor5Days);
+    renderLeftHero(mapFor5Days[0], 0);
+    renderRightHero(mapFor5Days[0], 0);
     await renderHeader(mapFor5Days[0], `San Antonio`);
     eventHandler(mapFor5Days);
 })();

@@ -23,6 +23,11 @@ body {
     background-image: linear-gradient(to right, var(--clr-gradient-lighter), var(--clr-gradient-darker));
 }
 
+img {
+    max-height: 100px;
+    max-width: 100px;
+}
+
 main.hero {
     background-color: var(--clr-hero-white);
     position: relative;

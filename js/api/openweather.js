@@ -23,7 +23,6 @@ class Forecast {
     }
 
     static async fiveDayMap(forecast) {
-        console.log(forecast)
         const fiveDayArr = forecast.daily.slice(0, 5);
         const better5DayForecast = fiveDayArr.map((day) => {
             const betterObject = {
