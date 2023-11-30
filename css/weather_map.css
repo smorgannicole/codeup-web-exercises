@@ -32,7 +32,7 @@ main.hero {
     background-color: var(--clr-hero-white);
     position: relative;
     height: 80vh;
-    width: 70%;
+    width: 50%;
     margin: auto;
     padding-left: 0;
     padding-right: 0;
@@ -81,7 +81,7 @@ p.opacity {
 }
 
 .map {
-    width: 50%;
+    width: 40%;
     height: 50vh;
     margin: auto;
     background-color: rgba(255, 255, 255, 0.9);
@@ -119,4 +119,18 @@ p.opacity {
 
 .tabContent.active {
     display: block;
+}
+
+.row.hider > .col:nth-child(2) {
+    position: relative;
+}
+
+.row.hider > .col:nth-child(2)::after {
+    content: " ";
+    position: absolute;
+    top: 0;
+    height: 100%;
+    right: -2px;
+    width: 4px;
+    background-color: var(--clr-hero-purple);
 }

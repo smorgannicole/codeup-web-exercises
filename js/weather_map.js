@@ -190,7 +190,7 @@ const updateCards = async (searchTerm) => {
         mapElement.classList.remove(`hide`);
         mapParent.classList.remove(`hide`);
         await Mapbox.createMap("map", [lat, lng], 9);
-    }, 10)
+    }, 1)
     setTimeout(async () => {
         const mapParent = document.querySelector(`.overlay`);
         const mapElement = document.querySelector(`#map`);
