@@ -3,7 +3,7 @@ import Mapbox from "./api/mapbox.js";
 
 const renderLeftHero = (forecast, index) => {
     const forecastElement = document.createElement(`div`);
-    forecastElement.classList.add(`div`, `purpleBg`, `temp`, `p-3`, `d-flex`, `flex-column`, `num${index}`);
+    forecastElement.classList.add(`purpleBg`, `temp`, `p-3`, `d-flex`, `flex-column`, `num${index}`);
     const currentDate = new Date();
     const forecastDate = new Date(forecast.day * 1000);
     const temperature = forecastDate > currentDate ? parseInt(forecast.avg_temp) : parseInt(forecast.current_temp);
@@ -20,8 +20,6 @@ const renderLeftHero = (forecast, index) => {
             <p class="opacity mb-1">${forecast.humidity}% Humidity</p>
         </div>
     `;
-
-
     document.querySelector("#leftSideHero").appendChild(forecastElement);
     return forecastElement;
 };
@@ -70,7 +68,7 @@ const renderRightHero = (forecast) => {
     const imgPath = getImagePath(description);
     const quote = getQuote(description);
     const imgQuoteElement = document.createElement(`div`);
-    imgQuoteElement.classList.add(`div`, `d-flex`, `flex-column`, `purpleBg`, `rightMostCol`, `p-3`, `align-items-end`, `justify-space-between`);
+    imgQuoteElement.classList.add(`d-flex`, `flex-column`, `purpleBg`, `rightMostCol`, `p-3`, `align-items-end`, `justify-space-between`);
     imgQuoteElement.innerHTML = `
         <div class="d-flex justify-content-end">
             <img style="max-width: 60%" src="${imgPath}" alt="">
@@ -103,36 +101,17 @@ const getCurrentDay = (timeStamp) => {
 }
 const renderTabButtons = (forecast) => {
     const btnParent = document.querySelector('.btnParent');
-    btnParent.innerHTML = ''; // Clear the btnParent before appending new buttons
-
-    const leftSideHero = document.querySelector('#leftSideHero');
-
+    btnParent.innerHTML = '';
     forecast.forEach((day, index) => {
         const dayDate = getCurrentDay(day.day);
         const button = document.createElement(`button`);
         button.classList.add(`tabLinks`);
-        button.innerHTML = `<span style="font-weight: 400; font-size: 120%">${dayDate}</span>`;
+        button.innerHTML = `
+            <span style="font-weight: 400; font-size: 120%">${dayDate}</span>
+        `;
         button.setAttribute('data-date', `${index}`);
-
-        button.addEventListener('click', () => {
-            const allForecastElements = document.querySelectorAll('.col.purpleBg.temp.p-3.d-flex.flex-column');
-            const forecastElementToShow = allForecastElements[index];
-
-            allForecastElements.forEach(el => {
-                el.style.display = 'none'; // Hide all forecast elements
-            });
-
-            forecastElementToShow.style.display = 'block'; // Show the clicked forecast element
-        });
-
         btnParent.appendChild(button);
     });
-
-    // Display the first forecast element by default
-    if (leftSideHero.children[0]) {
-        leftSideHero.children[0].style.display = 'block';
-    }
-
     return btnParent;
 };
 const renderHeader = (forecast, address) => {
@@ -163,12 +142,14 @@ const eventHandler = (mapFor5Days) => {
         searchInput.value = ``;
     });
     const buttons = document.querySelectorAll('.tabLinks');
-    buttons.forEach((button, index) => {
-        button.addEventListener('click', () => {
-            const dateIndex = button.getAttribute('data-date');
-            renderForecast(mapFor5Days[dateIndex]);
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener(`click`, () => {
+            const buttonId = buttons[i].getAttribute('data-date');
+            clearExistingContent();
+            renderLeftHero(mapFor5Days[buttonId], buttonId);
+            renderRightHero(mapFor5Days[buttonId], buttonId);
         });
-    });
+    }
 };
 const updateCards = async (searchTerm) => {
     const coordinates = await Mapbox.getCoordinates(searchTerm);
@@ -200,11 +181,9 @@ const updateCards = async (searchTerm) => {
         document.querySelector('.headerParent').innerHTML = '';
     };
 };
-const renderForecast = (selectedForecast) => {
-    clearExistingContent();
-    renderLeftHero(selectedForecast);
-    renderRightHero(selectedForecast);
-};
+// const renderForecast = (selectedForecast) => {
+//
+// };
 const clearExistingContent = () => {
     document.querySelector(`#leftSideHero`).innerHTML = "";
     document.querySelector(`#rightSideHero`).innerHTML = "";
@@ -215,11 +194,8 @@ const clearExistingContent = () => {
     const forecasts = await Forecast.getForecast(29.4252, -98.4946);
     const mapFor5Days = await Forecast.fiveDayMap(forecasts);
     mapFor5Days.forEach((day, index) => {
-        renderLeftHero(day, index);
-        renderRightHero(day);
         renderTabButtons(mapFor5Days);
     })
-
     await renderHeader(mapFor5Days[0], `San Antonio`);
     eventHandler(mapFor5Days);
 })();
