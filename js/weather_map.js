@@ -119,7 +119,6 @@ const renderTabButtons = (forecast) => {
         button.setAttribute(`data-date`, `${index}`);
 
         button.addEventListener(`click`, () => {
-            // Clear existing content
             clearExistingContent();
             renderLeftHero(forecast[index], index);
             renderRightHero(forecast[index], index);
@@ -206,9 +205,6 @@ const updateCards = async (searchTerm) => {
 
     renderHeader(mapFor5Days[0], searchTerm);
 };
-// const renderForecast = (selectedForecast) => {
-//
-// };
 const clearExistingContent = () => {
     document.querySelector(`#leftSideHero`).innerHTML = "";
     document.querySelector(`#rightSideHero`).innerHTML = "";
